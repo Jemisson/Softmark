@@ -1,28 +1,22 @@
-== README
+SOFTMARK - SOFTWARE DE MARKETING DIGITAL COM O USO DE PROPAGANDA
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+UNIFESP - São José dos Campos
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Disciplina Engenharia de Software
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+
+-- Instalação --
+
+Após clonar/download o projeto acesse a pasta via terminal e execute os comandos:
+
+bundle
+
+rake db:create db:migrate
+
+rails s
+
+
+O programa será executado em localhost:3000
+
+Jemison Santos - Thais Camargo
