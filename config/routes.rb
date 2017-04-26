@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
+
+  namespace :backoffice do
+    resources :categories, except: [:show, :destroy]
+    get 'dashboard', to: 'dashboard#index'
+  end
+
+
+  root 'backoffice/dashboard#index'
+
   devise_for :admins
   devise_for :members
   # The priority is based upon order of creation: first created -> highest priority.

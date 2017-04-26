@@ -14,13 +14,18 @@ gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
-
-
+# Rails gem of the Bootstrap based admin theme SB Admin 2.
+gem 'bootstrap_sb_admin_base_v2'
 #Better error page for Rack apps
 gem "better_errors"
 #Flexible authentication solution for Rails with Warden.
 gem 'devise'
 gem 'devise-i18n'
+# alert messages
+gem 'rails-assets-notifyjs', source: 'https://rails-assets.org'
+# Uses rQRCode and chunky_png to produce .png images of QR codes in pure Ruby.
+gem 'rqrcode_png'
+
 
 
 

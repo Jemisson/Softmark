@@ -1,26 +1,26 @@
-<h2>Administrador</h2>
+<div class="card card-container">
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+    <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+    <p id="profile-name" class="profile-name-card"></p>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+    <span id="reauth-email" class="reauth-email"></span>
 
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end -%>
+    <%= f.email_field :email, id:"inputEmail", class:"form-control",
+                              placeholder:"Email address", autofocus: true %>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
+    <%= f.password_field :password, autocomplete: "off", id:"inputPassword",
+                          class:"form-control", placeholder:"Password" %>
 
-<%= render "admins/shared/links" %>
+    <% if devise_mapping.rememberable? -%>
+      <div class="field">
+        <%= f.check_box :remember_me %>
+        <%= f.label :remember_me %>
+      </div>
+    <% end -%>
+
+    <%= f.submit "Log in",
+            class:"btn btn-login btn-lg btn-primary btn-block btn-signin" %>
+            <%= render "admins/shared/links" %>
+  <% end %>
+</div><!-- /card-container -->
