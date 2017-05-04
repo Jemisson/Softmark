@@ -23,8 +23,8 @@ gem 'devise'
 gem 'devise-i18n'
 # alert messages
 gem 'rails-assets-notifyjs', source: 'https://rails-assets.org'
-# Uses rQRCode and chunky_png to produce .png images of QR codes in pure Ruby.
-gem 'rqrcode_png'
+# A Ruby library that encodes QR Codes http://whomwah.github.com/rqrcode/
+gem 'rqrcode'
 
 
 
