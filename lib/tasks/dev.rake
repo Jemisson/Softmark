@@ -9,6 +9,7 @@ namespace :dev do
     puts %x(rake db:migrate)
     puts %x(rake db:seed)
     puts %x(rake dev:generate_admins)
+    puts %x(rake dev:generate_weathers)
 
     puts "Setup completado com sucesso!"
   end
@@ -30,6 +31,25 @@ namespace :dev do
     end
 
     puts "ADMINISTRADORES cadastrados com sucesso!"
+  end
+
+  #################################################################
+
+  desc "Cria clima"
+  task generate_weathers: :environment do
+    puts "Cadastrando CLIMAS..."
+
+    climas = ["Ensolarado",
+              "Nublado",
+              "Chuvoso"]
+
+    climas.each do |climas|
+      Weather.find_or_create_by(description: climas,
+                                minTemp: "#{Random.rand(15)}",
+                                maxTemp: "#{Random.rand(15)}")
+    end
+
+    puts "CLIMAS cadastrados com sucesso!"
   end
 
 end

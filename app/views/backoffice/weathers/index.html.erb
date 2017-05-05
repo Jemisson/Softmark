@@ -1,12 +1,12 @@
-<h1 class="page-header">Categorias</h1>
+<h1 class="page-header"><%= t('labels.weather') %></h1>
 
 <div class="row">
     <div class="col-lg-12">
         <div class="panel panel-default">
 
             <div class="panel-heading">
-                Listando Categorias
-                <%= link_to new_backoffice_category_path,
+                <%= t('labels.listing_weather') %>
+                <%= link_to new_backoffice_weather_path,
                 class:"btn btn-success btn-success-adjust btn-circle pull-right" do%>
                 <i class="fa fa-plus"></i>
                 <% end %>
@@ -24,18 +24,22 @@
                         <thead>
                           <tr role="row">
                             <th class="sorting_asc">#</th>
-                            <th class="sorting_asc">Descrição</th>
-                            <th></th>
+                            <th class="sorting_asc"><%= t('labels.description') %></th>
+                            <th class="sorting_asc"><%= t('labels.minTemp') %></th>
+                            <th class="sorting_asc"><%= t('labels.maxTemp') %></th>
+                            <th><%= t('labels.edit') %></th>
                           </tr>
                         </thead>
 
                         <tbody>
-                          <% @categories.each do |category|%>
+                          <% @weathers.each do |weather|%>
                             <tr class="gradeA odd" role="row">
-                              <td class="sorting_1"><%= category.id%></td>
-                              <td><%= category.description%></td>
+                              <td class="sorting_1"><%= weather.id%></td>
+                              <td><%= weather.description%></td>
+                              <td><%= weather.minTemp%></td>
+                              <td><%= weather.maxTemp%></td>
                               <td class="option-btn">
-                                <%= link_to edit_backoffice_category_path(category),
+                                <%= link_to edit_backoffice_weather_path(weather),
                                 class:"btn btn-primary btn-circle" do%>
                                 <i class="fa fa-edit"></i>
                                 <% end %>

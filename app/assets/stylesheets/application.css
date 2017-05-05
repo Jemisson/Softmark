@@ -13,3 +13,7 @@
  *= require font-awesome
  *= require_self
  */
+
+.nav .fa{
+  margin-right: 10px;
+}
