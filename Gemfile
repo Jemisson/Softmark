@@ -21,12 +21,17 @@ gem "better_errors"
 #Flexible authentication solution for Rails with Warden.
 gem 'devise'
 gem 'devise-i18n'
-# alert messages
-gem 'rails-assets-notifyjs', source: 'https://rails-assets.org'
 # A Ruby library that encodes QR Codes http://whomwah.github.com/rqrcode/
 gem 'rqrcode'
+# faker gem
+gem 'faker'
 
-
+source 'https://rails-assets.org' do
+  # alert messages
+  gem 'rails-assets-notifyjs'
+  # BootboxJS
+  gem 'rails-assets-bootbox'
+end
 
 
 # Use jquery as the JavaScript library
