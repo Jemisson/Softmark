@@ -8,9 +8,11 @@
 
 
 puts "Cadastrando ADMINISTRADOR PADRÃO"
-Admin.create!(email: "admin@admin.com",
+Admin.create!(name: "Administrador Padrão",
+              email: "admin@admin.com",
               password: "123456",
-              password_confirmation: "123456")
+              password_confirmation: "123456",
+              role: 0)
 
 puts "ADMINISTRADOR PADRÃO cadastrado com sucesso"
 

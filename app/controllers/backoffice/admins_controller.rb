@@ -1,20 +1,24 @@
 class Backoffice::AdminsController < BackofficeController
   before_action :set_admin, only: [:edit, :update, :destroy]
+  after_action :verify_authorized, only: :new
+  after_action :verify_policy_scoped, only: :index
 
   def index
-    @admins = Admin.all
+    @admins = policy_scope(Admin)
   end
 
   def new
     @admin = Admin.new
+    authorize @admin
   end
 
   def create
-    @admin = Admin.new(params_admin)
-    if @admin.save
-      redirect_to backoffice_admins_path, notice: "O Administrador #{@admin.email} foi salvo com sucesso"
-    else
+    @admin = AdminService.create(params_admin)
+
+    if @admin.errors.any?
       render :new
+    else
+      redirect_to backoffice_admins_path, notice: "O Administrador #{@admin.email} foi salvo com sucesso"
     end
   end
 
@@ -54,7 +58,7 @@ class Backoffice::AdminsController < BackofficeController
     end
 
     def params_admin
-      params.require(:admin).permit(:email, :password, :password_confirmation)
+      params.require(:admin).permit(:name, :email, :password, :password_confirmation, :role)
     end
 
 
