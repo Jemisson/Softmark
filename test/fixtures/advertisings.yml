@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  client: MyString
+  finishDate: 2017-05-05
+  start: 2017-05-05
+  status: 1
+  category_id: 
+  weather_id: 
+  user_id: 
+
+two:
+  client: MyString
+  finishDate: 2017-05-05
+  start: 2017-05-05
+  status: 1
+  category_id: 
+  weather_id: 
+  user_id: 

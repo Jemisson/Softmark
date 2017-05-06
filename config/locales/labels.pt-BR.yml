@@ -31,3 +31,13 @@
     category: Categoria
     admins: Administradores
     dashboard: Painel Principal
+    advertising: Anúncios
+    listing_advertising: Listando Anúncios
+    client: Cliente
+    finishDate: Data Fim
+    startDate: Data Início
+    status: Situação
+    qrcode: QRCode
+    name: Nome
+    role_access: Tipo de Acesso
+    listing_admins: Listando Administradores

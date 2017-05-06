@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
 
@@ -13,8 +13,6 @@
 
     <%= stylesheet_link_tag    'application' %>
     <%= stylesheet_link_tag    'backoffice' %>
-    <%= javascript_include_tag 'application'%>
-    <%= javascript_include_tag 'backoffice'%>
     <%= csrf_meta_tags %>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -27,30 +25,33 @@
 </head>
 
 <body>
-<div id="wraper">
-  <%= render partial: "layouts/backoffice_shared/navigation" %>
-  <div id="page-wrapper">
-      <div class="container-fluid">
-          <div class="row">
-              <div class="col-lg-12">
-                <%= yield %>
-              </div>
-          </div>
-      </div>
+  <div id="wraper">
+    <%= render partial: "layouts/backoffice_shared/navigation" %>
+    <div id="page-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                  <%= yield %>
+                </div>
+            </div>
+        </div>
+    </div>
   </div>
-</div>
 
-<% if notice %>
-  <script>
-    $.notify("<%= notice %>", "success");
-  </script>
-<% end %>
+  <%= javascript_include_tag 'application'%>
+  <%= javascript_include_tag 'backoffice'%>
 
-<% if alert %>
-  <script>
-    $.notify("<%= alert %>", "error");
-  </script>
-<% end %>
+  <% if notice %>
+    <script>
+      $.notify("<%= notice %>", "success");
+    </script>
+  <% end %>
+
+  <% if alert %>
+    <script>
+      $.notify("<%= alert %>", "error");
+    </script>
+  <% end %>
 
 </body>
 

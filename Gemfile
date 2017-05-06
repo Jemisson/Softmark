@@ -27,7 +27,10 @@ gem 'rqrcode'
 gem 'faker'
 # Minimal authorization throug )) design and pure Ruby classes
 gem 'pundit'
-
+# Help ActiveRecord::Enum feature to work with I18n and simple_form
+gem 'enum_help'
+# jQuery-ui-rails
+gem 'jquery-ui-rails'
 
 source 'https://rails-assets.org' do
   # alert messages

@@ -48,6 +48,16 @@
             placeholder:"Confirmação de senha" %>
           </div>
 
+          <div class="from-group">
+            <%= f.label :role %>
+            <%= f.collection_radio_buttons(:role, options_for_roles, :id,
+                                            :description) do |b| %>
+              <div class="radio">
+                <%= b.label {b.radio_button + b.text} %>
+              </div>
+            <% end %>
+          </div>
+
           <button type="submit" class="btn btn-primary">Salvar</button>
           <% end %>
 

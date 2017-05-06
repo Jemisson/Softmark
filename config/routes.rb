@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     resources :categories, except: [:show, :destroy]
     resources :admins, except: [:show]
     resources :weathers, except: [:show, :destroy]
+    resources :advertisings, except: [:show]
     get 'dashboard', to: 'dashboard#index'
   end
 

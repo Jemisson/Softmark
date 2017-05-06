@@ -38,28 +38,39 @@
 
                 <li>
                   <%= link_to backoffice_dashboard_path do %>
-                    <i class="fa fa-dashboard fa-fw"></i>Painel Principal
+                    <i class="fa fa-dashboard fa-fw"></i><%= t('labels.dashboard') %>
                   <% end %>
                 </li>
 
                 <li>
                   <%= link_to backoffice_weathers_path do %>
-                    <i class="fa fa-soundcloud fa-fw"></i>Clima
+                    <i class="fa fa-cloud fa-fw"></i><%= t('labels.weather') %>
                   <% end %>
                 </li>
 
                 <li>
                   <%= link_to backoffice_categories_path do %>
-                    <i class="fa fa-th-list fa-fw"></i>Categorias
+                    <i class="fa fa-th-list fa-fw"></i><%= t('labels.category') %>
+                  <% end %>
+                </li>
+
+                <li>
+                  <%= link_to backoffice_advertisings_path do %>
+                    <i class="fa fa-desktop fa-fw"></i><%= t('labels.advertising') %>
+                  <% end %>
+                </li>
+
+                <li>
+                  <%= link_to "#" do %>
+                    <i class="fa fa-qrcode fa-fw"></i><%= t('labels.qrcode') %>
                   <% end %>
                 </li>
 
                 <li>
                   <%= link_to backoffice_admins_path do %>
-                    <i class="fa fa-users fa-fw"></i>Administradores
+                    <i class="fa fa-users fa-fw"></i><%= t('labels.admins') %>
                   <% end %>
                 </li>
-
 
             </ul>
         </div>
