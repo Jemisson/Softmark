@@ -10,11 +10,11 @@ Disciplina Engenharia de Software
 
 Após clonar/download o projeto acesse a pasta via terminal e execute os comandos:
 
-bundle
+1º bundle
 
-rake db:create db:migrate
+2º rake dev:setup
 
-rails s
+3º rails s
 
 
 O programa será executado em localhost:3000
