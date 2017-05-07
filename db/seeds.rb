@@ -29,3 +29,19 @@ categories.each do |category|
   Category.find_or_create_by(description: category)
 end
 puts "CATEGORIAS cadastradas com sucesso"
+
+#############################
+
+puts "Cadastrando CLIMAS..."
+
+climas = ["Ensolarado",
+          "Nublado",
+          "Chuvoso"]
+
+climas.each do |climas|
+  Weather.find_or_create_by(description: climas,
+                            minTemp: "#{Random.rand(15)}",
+                            maxTemp: "#{Random.rand(15)}")
+end
+
+puts "CLIMAS cadastrados com sucesso!"

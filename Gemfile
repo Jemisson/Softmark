@@ -34,6 +34,8 @@ gem 'jquery-ui-rails'
 # Easy file attachment management for ActiveRecord
 gem 'paperclip', '~> 5.0.0'
 
+gem 'foreman'
+
 
 
 source 'https://rails-assets.org' do

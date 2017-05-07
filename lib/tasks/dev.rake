@@ -33,23 +33,4 @@ namespace :dev do
     puts "ADMINISTRADORES cadastrados com sucesso!"
   end
 
-  #################################################################
-
-  desc "Cria clima"
-  task generate_weathers: :environment do
-    puts "Cadastrando CLIMAS..."
-
-    climas = ["Ensolarado",
-              "Nublado",
-              "Chuvoso"]
-
-    climas.each do |climas|
-      Weather.find_or_create_by(description: climas,
-                                minTemp: "#{Random.rand(15)}",
-                                maxTemp: "#{Random.rand(15)}")
-    end
-
-    puts "CLIMAS cadastrados com sucesso!"
-  end
-
 end
