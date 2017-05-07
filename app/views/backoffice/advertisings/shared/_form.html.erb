@@ -28,45 +28,43 @@
           <div class="form-group">
             <label><%= t('labels.client') %></label>
             <%= f.text_field :client, class:"form-control",
-            placeholder:"Padaria Pão" %>
+            placeholder:"João da Silva" %>
           </div>
 
           <div class="row">
-            <div class="col-xs-4">
-              <div class="form-group">
-                <label><%= t('labels.finishDate') %></label>
-                <%= f.text_field :finishDate, class:"form-control datepicker" %>
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-xs-4">
+            <div class="col-lg-5">
               <div class="form-group">
                 <label><%= t('labels.startDate') %></label>
-                <%= f.text_field :startDate, class:"form-control datepicker" %>
+                <%= f.text_field :start_date, class:"form-control datepicker" %>
               </div>
             </div>
           </div>
 
-          <div class="form-group">
-            <label><%= t('labels.category') %></label>
-
-          </div>
-
-          <div class="form-group">
-            <label><%= t('labels.weather') %></label>
-
-          </div>
-
-          <div class="from-group">
-            <%= f.label :status %>
-            <%= f.collection_radio_buttons(:status, options_for_status, :id,
-                                            :description) do |b| %>
-              <div class="radio">
-                <%= b.label {b.radio_button + b.text} %>
+          <div class="row">
+            <div class="col-lg-5">
+              <div class="form-group">
+                <label><%= t('labels.finishDate') %></label>
+                <%= f.text_field :end_date, class:"form-control datepicker" %>
               </div>
-            <% end %>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-lg-5">
+              <div class="form-group">
+                <label><%= t('labels.category') %></label>
+                <%= collection_select(:advertising, :category_id, @categories_for_advertising, :id, :description) %>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-lg-5">
+              <div class="form-group">
+                <label><%= t('labels.weather') %></label>
+                <%= collection_select(:advertising, :weather_id, @weather_for_advertising, :id, :description) %>
+              </div>
+            </div>
           </div>
 
           <button type="submit" class="btn btn-default">Salvar</button>

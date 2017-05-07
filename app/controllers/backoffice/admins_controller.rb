@@ -42,10 +42,10 @@ class Backoffice::AdminsController < BackofficeController
   end
 
   def destroy
-    admin_email = @admin.email
+    admin_name = @admin.name
 
     if @admin.destroy
-      redirect_to backoffice_admins_path, notice: "O administrador #{admin_email} foi excluído com sucesso"
+      redirect_to backoffice_admins_path, notice: "O administrador #{admin_name} foi excluído com sucesso"
     else
       render :index
     end

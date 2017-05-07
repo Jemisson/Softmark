@@ -31,6 +31,8 @@ gem 'pundit'
 gem 'enum_help'
 # jQuery-ui-rails
 gem 'jquery-ui-rails'
+# Easy file attachment management for ActiveRecord
+gem 'paperclip', '~> 5.0.0'
 
 source 'https://rails-assets.org' do
   # alert messages

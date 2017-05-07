@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170505175555) do
+ActiveRecord::Schema.define(version: 20170507030417) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -35,18 +35,15 @@ ActiveRecord::Schema.define(version: 20170505175555) do
 
   create_table "advertisings", force: :cascade do |t|
     t.string   "client"
-    t.date     "finishDate"
-    t.date     "startDate"
-    t.integer  "status"
+    t.date     "start_date"
+    t.date     "end_date"
     t.integer  "category_id"
     t.integer  "weather_id"
-    t.integer  "user_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
 
   add_index "advertisings", ["category_id"], name: "index_advertisings_on_category_id"
-  add_index "advertisings", ["user_id"], name: "index_advertisings_on_user_id"
   add_index "advertisings", ["weather_id"], name: "index_advertisings_on_weather_id"
 
   create_table "categories", force: :cascade do |t|
