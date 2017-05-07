@@ -1,10 +1,9 @@
 source 'https://rubygems.org'
+ruby "2.3.1"
 
-
+gem 'bundler', '>=1.11.2'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -20,6 +19,7 @@ gem 'bootstrap_sb_admin_base_v2'
 gem "better_errors"
 #Flexible authentication solution for Rails with Warden.
 gem 'devise'
+# Translations for devise
 gem 'devise-i18n'
 # A Ruby library that encodes QR Codes http://whomwah.github.com/rqrcode/
 gem 'rqrcode'
@@ -33,6 +33,8 @@ gem 'enum_help'
 gem 'jquery-ui-rails'
 # Easy file attachment management for ActiveRecord
 gem 'paperclip', '~> 5.0.0'
+
+
 
 source 'https://rails-assets.org' do
   # alert messages
@@ -61,6 +63,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  # Use sqlite3 as the database for Active Record
+  gem 'sqlite3'
 end
 
 group :development do
@@ -69,4 +73,12 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+end
+
+group :production do
+  # Heroku dependencies
+  # PostgreSQL
+  gem 'pg'
+  # rails_12factor
+  gem 'rails_12factor'
 end

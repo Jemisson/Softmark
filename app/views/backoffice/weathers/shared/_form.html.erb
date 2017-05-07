@@ -24,25 +24,30 @@
       <div class="panel-body">
         <div class="col-lg-6">
           <%= form_for([:backoffice, @weather]) do |f| %>
-          <div class="form-group">
-            <label>Descrição</label>
-            <%= f.text_field :description, class:"form-control",
-            placeholder:"Ensolarado" %>
-          </div>
+            <div class="form-group">
+              <label>Descrição</label>
+              <%= f.text_field :description, class:"form-control",
+              placeholder:"Ensolarado" %>
+            </div>
 
-          <div class="form-group">
-            <label>Temperatura Mínima</label>
-            <%= f.text_field :minTemp, class:"form-control",
-            placeholder:"30" %>
-          </div>
-          
-          <div class="form-group">
-            <label>Temperatura Máxima</label>
-            <%= f.text_field :maxTemp, class:"form-control",
-            placeholder:"50" %>
-          </div>
+            <div class="form-group">
+              <label>Temperatura Mínima</label>
+              <%= f.text_field :minTemp, class:"form-control",
+              placeholder:"30" %>
+            </div>
 
-          <button type="submit" class="btn btn-default">Salvar</button>
+            <div class="form-group">
+              <label>Temperatura Máxima</label>
+              <%= f.text_field :maxTemp, class:"form-control",
+              placeholder:"50" %>
+            </div>
+
+            <button type="submit" class="btn btn-primary"><%= t('buttons.save') %></button>
+
+            <%= link_to backoffice_weathers_path,
+              class:"btn btn-outline btn-danger" do%>
+              <%= t('buttons.cancel') %>
+            <% end %>
           <% end %>
 
         </div>

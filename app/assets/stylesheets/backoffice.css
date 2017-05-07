@@ -1,7 +1,13 @@
 /*
  *= require bootstrap_sb_admin_base_v2
  */
+/* preview foto */
+#image_preview{
+  width: 700px;
+  height: 580px;
+}
 
+/**/
  .btn-success-adjust{
    margin-top: -5px;
  }

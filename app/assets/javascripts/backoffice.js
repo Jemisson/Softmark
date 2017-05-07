@@ -3,6 +3,24 @@
 
 $(document).ready(function(){
 
+/* Preview photos */
+function readURL(input) {
+
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('#image_preview').attr('src', e.target.result);
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+$("#image_field").change(function(){
+    readURL(this);
+});
+
 /* sobrescreve o data cofirm do rails*/
   $.rails.allowAction = function(element) {
     var message = element.attr('data-confirm');

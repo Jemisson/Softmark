@@ -24,6 +24,7 @@
                         <thead>
                           <tr role="row">
                             <th class="sorting_asc">#</th>
+                            <th class="sorting_asc"><%= t('labels.image') %></th>
                             <th class="sorting_asc"><%= t('labels.client') %></th>
                             <th class="sorting_asc"><%= t('labels.startDate') %></th>
                             <th class="sorting_asc"><%= t('labels.finishDate') %></th>
@@ -37,6 +38,7 @@
                           <% @advertisings.each do |advertising|%>
                             <tr class="gradeA odd" role="row">
                               <td class="sorting_1"><%= advertising.id%></td>
+                              <td><%= image_tag advertising.picture.url(:thumb) %></td>
                               <td><%= advertising.client%></td>
                               <td><%= advertising.start_date%></td>
                               <td><%= advertising.end_date%></td>
