@@ -1,0 +1,4 @@
+'pt-BR':
+  placeholder:
+    email_address: nome@email.com
+    password: senha

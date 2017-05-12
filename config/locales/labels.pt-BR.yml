@@ -1,4 +1,6 @@
 'pt-BR':
+  software:
+    name: Softmark
   labels:
     login: Autenticar
     identify_yourself: Identifique-se
@@ -43,3 +45,5 @@
     listing_admins: Listando Administradores
     created_by: Criado por
     image: Imagem
+    exit: Sair
+    hello: Olá

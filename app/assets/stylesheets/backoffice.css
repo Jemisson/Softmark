@@ -1,6 +1,21 @@
 /*
  *= require bootstrap_sb_admin_base_v2
  */
+
+/*ALTERATION FOR CSS BOOTSTRAP SB ADMIN BASE 2*/
+
+.color-all{
+  background-color: rgba(42,63,83,1.0);
+}
+
+.sidebar ul li{
+  border-bottom: 1px solid rgba(255,255,255,0.3);
+}
+
+.navbar{
+  border: none;
+}
+
 /* preview foto */
 #image_preview{
   width: 700px;
@@ -30,7 +45,7 @@
   * Card component
   */
  .card {
-     background-color: #F7F7F7;
+     background-color: rgba(255,255,255,1.0);
      /* just in case there no content*/
      padding: 20px 25px 30px;
      margin: 0 auto 25px;
@@ -44,15 +59,27 @@
      box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
  }
 
+/* IMAGE CARD LOGIN*/
  .profile-img-card {
-     width: 96px;
-     height: 96px;
-     margin: 0 auto 10px;
+     width: 270px;
+     height: 75px;
      display: block;
-     -moz-border-radius: 50%;
-     -webkit-border-radius: 50%;
-     border-radius: 50%;
  }
+
+/* IMAGE TOP MENU*/
+ .imgThumbLogo{
+    width: 130px;
+    margin-top: -5px;
+ }
+
+/* IMAGE DASHBOARD */
+.center-logo{
+  opacity: 0.3;
+  margin-top: 17%;
+  opacity: 0.3;
+  margin-left: 10%;
+}
+
 
  /*
   * Form styles
@@ -80,17 +107,17 @@
      box-sizing: border-box;
  }
 
- .form-signin #inputEmail,
- .form-signin #inputPassword {
+ .new_admin #inputEmail,
+ .new_admin #inputPassword {
      direction: ltr;
      height: 44px;
      font-size: 16px;
  }
 
- .form-signin input[type=email],
- .form-signin input[type=password],
- .form-signin input[type=text],
- .form-signin button {
+ .new_admin input[type=email],
+ .new_admin input[type=password],
+ .new_admin input[type=text],
+ .new_admin button {
      width: 100%;
      display: block;
      margin-bottom: 10px;
@@ -101,7 +128,7 @@
      box-sizing: border-box;
  }
 
- .form-signin .form-control:focus {
+ .new_admin .form-control:focus {
      border-color: rgb(104, 145, 162);
      outline: 0;
      -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgb(104, 145, 162);
@@ -129,7 +156,7 @@
  .btn.btn-signin:hover,
  .btn.btn-signin:active,
  .btn.btn-signin:focus {
-     background-color: rgb(12, 97, 33);
+     background-color: rgba(104, 145, 162, 0.5);
  }
 
  .forgot-password {
@@ -148,3 +175,56 @@
    width: 10%;
    text-align: center;
  }
+/* RE-STYLE  NAV BAR BOOTSTRAP*/
+
+.navbar.navbar-default, /*Topbar*/
+.navbar.navbar-default .dropdown-toggle, /*Topbar*/
+.navbar-default.sidebar, /*Sidebar*/
+.sidebar-nav.navbar-collapse,
+.sidebar-nav.navbar-collapse li a{
+  background-color: rgba(42,63,83,1.0);
+}
+.sidebar ul li a.active{
+  background-color: rgba(255,255,255,0.3);
+  color: #CCCCCC;
+}
+
+
+.nav .open a:hover,
+.nav .open a:focus,
+.navbar.navbar-default .dropdown-toggle:hover,
+.navbar.navbar-default .dropdown-menu.dropdown-user{
+  background-color: rgba(42,63,83,1.0);
+  color: #CCCCCC;
+}
+
+.dropdown-menu.dropdown-user a:hover{
+  background-color: rgba(52, 73, 94,1.0);
+}
+
+.navbar-brand:hover,
+.navbar.navbar-default li,
+.navbar.navbar-default a,
+.navbar.navbar-default i{
+  color: #CCCCCC;
+}
+
+.uppercase{
+  text-transform: uppercase;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ /**/
