@@ -23,6 +23,7 @@ gem 'devise'
 gem 'devise-i18n'
 # A Ruby library that encodes QR Codes http://whomwah.github.com/rqrcode/
 gem 'rqrcode'
+gem 'rqrcode_png'
 # faker gem
 gem 'faker'
 # Minimal authorization throug )) design and pure Ruby classes

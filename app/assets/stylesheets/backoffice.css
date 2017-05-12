@@ -40,12 +40,15 @@
      user-select: none;
      cursor: default;
  }
-
+/*STYLE FOR BODY LOGIN*/
+.body-devise{
+  background-color: #A9F9FB
+}
  /*
   * Card component
   */
  .card {
-     background-color: rgba(255,255,255,1.0);
+     background: rgba(0,0,0,0.1);
      /* just in case there no content*/
      padding: 20px 25px 30px;
      margin: 0 auto 25px;
@@ -211,8 +214,31 @@
 .uppercase{
   text-transform: uppercase;
 }
+/* STYLES FOR QRCODE*/
+.qrcode-panel{
+  
+}
 
+/*View Qrcode*/
 
+ table.qrcode {
+  border-width: 0;
+  border-style: none;
+  border-color: #0000ff;
+  border-collapse: collapse;
+ }
+ table.qrcode td {
+   border-width: 0;
+   border-style: none;
+   border-color: #0000ff;
+   border-collapse: collapse;
+   padding: 0;
+   margin: 0;
+   width: 10px;
+   height: 10px;
+ }
+ table.qrcode td.black { background-color: #000; }
+ table.qrcode td.white { background-color: #fff; }
 
 
 

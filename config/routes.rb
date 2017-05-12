@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :weathers, except: [:show, :destroy]
     resources :advertisings, except: [:show]
     resources :qrcodes , except: [:show]
+    get 'download', to:'qrcodes#download'
     get 'dashboard', to: 'dashboard#index'
   end
 
