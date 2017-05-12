@@ -116,8 +116,7 @@
 
  .new_admin input[type=email],
  .new_admin input[type=password],
- .new_admin input[type=text],
- .new_admin button {
+ .new_admin input[type=text]{
      width: 100%;
      display: block;
      margin-bottom: 10px;

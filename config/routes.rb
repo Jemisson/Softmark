@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :admins, except: [:show]
     resources :weathers, except: [:show, :destroy]
     resources :advertisings, except: [:show]
+    resources :qrcodes , except: [:show]
     get 'dashboard', to: 'dashboard#index'
   end
 

@@ -29,12 +29,14 @@
     minTemp: Mínima °C
     maxTemp: Máxima °C
     weather: Clima
-    listing_weather: Listando Clima / Tempo
     category: Categoria
     admins: Administradores
     dashboard: Painel Principal
     advertising: Anúncios
     listing_advertising: Listando Anúncios
+    listing_weather: Listando Clima / Tempo
+    listing_admins: Listando Administradores
+    listing_qrcodes: Listando Cupons de Desconto
     client: Cliente
     finishDate: Data Fim
     startDate: Data Início
@@ -42,8 +44,13 @@
     qrcode: QRCode
     name: Nome
     role_access: Tipo de Acesso
-    listing_admins: Listando Administradores
     created_by: Criado por
     image: Imagem
     exit: Sair
     hello: Olá
+    date_time: Data e Hora
+    validity: Validade
+    days_validity: Duração do Cupom em Dias
+    value_discount_or_percent: Valor ou Percentual de Desconto
+    value_discount: Valor de Desconto
+    coupon_discount: Cupom de Desconto

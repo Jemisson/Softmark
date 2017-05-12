@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170507180129) do
+ActiveRecord::Schema.define(version: 20170512031925) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -73,6 +73,15 @@ ActiveRecord::Schema.define(version: 20170507180129) do
 
   add_index "members", ["email"], name: "index_members_on_email", unique: true
   add_index "members", ["reset_password_token"], name: "index_members_on_reset_password_token", unique: true
+
+  create_table "qrcodes", force: :cascade do |t|
+    t.datetime "date_time"
+    t.integer  "validity"
+    t.float    "value"
+    t.string   "client"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "weathers", force: :cascade do |t|
     t.string   "description"

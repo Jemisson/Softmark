@@ -7,10 +7,10 @@
     <span id="reauth-email" class="reauth-email"></span>
 
     <%= f.email_field :email, id:"inputEmail", class:"form-control",
-                              placeholder:t("placeholder.email_address"), autofocus: true %>
+                              placeholder:t("placeholders.email_address"), autofocus: true %>
 
     <%= f.password_field :password, autocomplete: "off", id:"inputPassword",
-                          class:"form-control", placeholder:t("placeholder.password") %>
+                          class:"form-control", placeholder:t("placeholders.password") %>
 
     <% if devise_mapping.rememberable? -%>
       <div class="field">

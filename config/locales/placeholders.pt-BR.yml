@@ -1,0 +1,6 @@
+'pt-BR':
+  placeholders:
+    email_address: joao@silva.com
+    password: Senha
+    confirm_password: Confirma Senha
+    john: João da Silva

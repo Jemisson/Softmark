@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date_time: 2017-05-12 00:19:26
+  validity: 1
+  value: 1.5
+  client_id: 
+
+two:
+  date_time: 2017-05-12 00:19:26
+  validity: 1
+  value: 1.5
+  client_id: 

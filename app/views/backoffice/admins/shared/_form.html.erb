@@ -27,25 +27,25 @@
             <div class="form-group">
               <label>Nome</label>
               <%= f.text_field :name, class:"form-control",
-              placeholder:"João da Silva" %>
+              placeholder: t('placeholders.john') %>
             </div>
 
             <div class="form-group">
               <label>Email</label>
               <%= f.text_field :email, class:"form-control",
-              placeholder:"joao@silva.com" %>
+              placeholder:t('placeholders.email_address') %>
             </div>
 
             <div class="form-group">
               <label>Senha</label>
               <%= f.password_field :password, class:"form-control",
-              placeholder:"senha" %>
+              placeholder:t('placeholders.password') %>
             </div>
 
             <div class="form-group">
               <label>Confirmação da senha</label>
               <%= f.password_field :password_confirmation, class:"form-control",
-              placeholder:"Confirmação de senha" %>
+              placeholder:t("placeholders.confirm_password") %>
             </div>
 
             <div class="from-group">

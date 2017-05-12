@@ -9,7 +9,6 @@ namespace :dev do
     puts %x(rake db:migrate)
     puts %x(rake db:seed)
     puts %x(rake dev:generate_admins)
-    puts %x(rake dev:generate_weathers)
 
     puts "Setup completado com sucesso!"
   end
