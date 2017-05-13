@@ -1,4 +1,4 @@
-<h1 class="page-header"><%= t('labels.qrcode') %></h1>
+<h1 class="page-header"><%= t('labels.coupons_discount') %></h1>
 
 <div class="row">
     <div class="col-lg-12">
@@ -25,9 +25,10 @@
                           <tr role="row">
                             <th class="sorting_asc">#</th>
                             <th class="sorting_asc"><%= t('labels.client') %></th>
-                            <th class="sorting_asc"><%= t('labels.date_time') %></th>
-                            <th class="sorting_asc"><%= t('labels.value') %></th>
-                            <th></th>
+                            <th class="sorting_asc center"><%= t('labels.value_discount') %></th>
+                            <th class="sorting_asc center"><%= t('labels.validity') %></th>
+                            <th><%= t('labels.edit') %></th>
+                            <th><%= t('labels.delete') %></th>
                           </tr>
                         </thead>
 
@@ -35,21 +36,24 @@
                           <% @qrcodes.each do |qrcode|%>
                             <tr class="gradeA odd" role="row">
                               <td class="sorting_1"><%= qrcode.id%></td>
-                              <td><%= qrcode.date_time%></td>
-                              <td><%= qrcode.value%></td>
+                              <td><%= qrcode.client%></td>
+                              <td class="center"><%= qrcode.value%></td>
+                              <td class="center"><%= qrcode.validity%></td>
+
                               <td class="option-btn">
-
-                              <%= link_to edit_backoffice_qrcode_path(qrcode),
-                                  class:"btn btn-primary btn-circle" do%>
-                                <i class="fa fa-edit"></i>
+                                <%= link_to edit_backoffice_qrcode_path(qrcode),
+                                    class:"btn btn-primary btn-circle" do%>
+                                  <i class="fa fa-edit"></i>
                                 <% end %>
+                              </td>
 
-                              <%= link_to backoffice_qrcode_path(qrcode),
-                                  method: :delete, class:"btn btn-danger btn-circle",
-                                  data:{confirm:t('messages.confirm_with',
-                                  item: qrcode.client)} do%>
-                                  <i class="fa fa-times"></i>
-                              <% end %>
+                              <td class="option-btn">
+                                <%= link_to backoffice_qrcode_path(qrcode),
+                                    method: :delete, class:"btn btn-danger btn-circle",
+                                    data:{confirm:t('messages.confirm_with',
+                                    item: qrcode.client)} do%>
+                                    <i class="fa fa-times"></i>
+                                <% end %>
                               </td>
 
                             </tr>

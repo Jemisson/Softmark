@@ -78,4 +78,34 @@ $("#image_field").change(function(){
                   }
                 }});
 
+
+
+/* MAKE TOKEN FOR QRCODE */
+
+$('#generate_token').click(function(){
+  $('#token').val($('#client').val() + "&" + $('#validity').val() + "&" +
+                  $('#value').val() + "&" + $('#date_time').val());
 });
+
+
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**/

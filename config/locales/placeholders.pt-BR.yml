@@ -1,6 +1,6 @@
 'pt-BR':
   placeholders:
-    email_address: joao@silva.com
-    password: Senha
+    email_address: exemplo@exemplo.com
+    password: senha
     confirm_password: Confirma Senha
     john: João da Silva

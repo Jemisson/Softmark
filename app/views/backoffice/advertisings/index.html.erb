@@ -26,11 +26,10 @@
                             <th class="sorting_asc">#</th>
                             <th class="sorting_asc"><%= t('labels.image') %></th>
                             <th class="sorting_asc"><%= t('labels.client') %></th>
-                            <th class="sorting_asc"><%= t('labels.startDate') %></th>
-                            <th class="sorting_asc"><%= t('labels.finishDate') %></th>
                             <th class="sorting_asc"><%= t('labels.category') %></th>
                             <th class="sorting_asc"><%= t('labels.weather') %></th>
                             <th><%= t('labels.edit') %></th>
+                            <th><%= t('labels.delete') %></th>
                           </tr>
                         </thead>
 
@@ -40,16 +39,17 @@
                               <td class="sorting_1"><%= advertising.id%></td>
                               <td><%= image_tag advertising.picture.url(:thumb) %></td>
                               <td><%= advertising.client%></td>
-                              <td><%= advertising.start_date%></td>
-                              <td><%= advertising.end_date%></td>
                               <td><%= advertising.category.description%></td>
                               <td><%= advertising.weather.description%></td>
+
                               <td class="option-btn">
                                 <%= link_to edit_backoffice_advertising_path(advertising),
                                   class:"btn btn-primary btn-circle" do%>
                                   <i class="fa fa-edit"></i>
                                 <% end %>
+                              </td>
 
+                              <td class="option-btn">
                                 <%= link_to backoffice_advertising_path(advertising),
                                     method: :delete, class:"btn btn-danger btn-circle",
                                     data:{confirm:t('messages.confirm_with',
@@ -57,6 +57,7 @@
                                   <i class="fa fa-times"></i>
                                 <% end %>
                               </td>
+
                             </tr>
                           <% end %>
                         </tbody>

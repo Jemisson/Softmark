@@ -30,6 +30,7 @@
                             <th class="sorting_asc"><%= t('labels.name') %></th>
                             <th class="sorting_asc"><%= t('labels.role_access') %></th>
                             <th><%= t('labels.edit') %></th>
+                            <th><%= t('labels.delete') %></th>
                           </tr>
                         </thead>
 
@@ -50,7 +51,9 @@
                                   class:"btn btn-primary btn-circle" do%>
                                   <i class="fa fa-edit"></i>
                                 <% end %>
-
+                              </td>
+                                
+                                <td class="option-btn">
                                 <% if current_admin.id != admin.id %>
                                   <%= link_to backoffice_admin_path(admin),
                                       method: :delete, class:"btn btn-danger btn-circle",

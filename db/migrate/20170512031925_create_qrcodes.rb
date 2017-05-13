@@ -5,6 +5,8 @@ class CreateQrcodes < ActiveRecord::Migration
       t.integer :validity
       t.float :value
       t.string :client
+      t.string :img_path
+      t.string :token
 
       t.timestamps null: false
     end

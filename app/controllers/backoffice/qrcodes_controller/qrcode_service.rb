@@ -10,4 +10,5 @@ class Backoffice::QrcodesController::QrcodeService
 
     @qrcode
   end
+
 end

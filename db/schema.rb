@@ -79,7 +79,8 @@ ActiveRecord::Schema.define(version: 20170512031925) do
     t.integer  "validity"
     t.float    "value"
     t.string   "client"
-    t.string   "qr_code"
+    t.string   "img_path"
+    t.string   "token"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
