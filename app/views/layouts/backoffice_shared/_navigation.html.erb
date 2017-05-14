@@ -45,14 +45,14 @@
                 </li>
 
                 <li>
-                  <%= link_to backoffice_weathers_path do %>
-                    <i class="fa fa-cloud fa-fw"></i><%= t('labels.weather') %>
+                  <%= link_to backoffice_categories_path do %>
+                  <i class="fa fa-th-list fa-fw"></i><%= t('labels.category') %>
                   <% end %>
                 </li>
 
                 <li>
-                  <%= link_to backoffice_categories_path do %>
-                    <i class="fa fa-th-list fa-fw"></i><%= t('labels.category') %>
+                  <%= link_to backoffice_weathers_path do %>
+                  <i class="fa fa-cloud fa-fw"></i><%= t('labels.weather') %>
                   <% end %>
                 </li>
 
@@ -69,8 +69,20 @@
                 </li>
 
                 <li>
+                  <%= link_to backoffice_clients_path do %>
+                  <i class="fa fa-qq fa-fw"></i><%= t('labels.client') %>
+                  <% end %>
+                </li>
+
+                <li>
+                  <%= link_to backoffice_members_path do %>
+                    <i class="fa fa-users fa-fw"></i><%= t('labels.member') %>
+                  <% end %>
+                </li>
+
+                <li>
                   <%= link_to backoffice_admins_path do %>
-                    <i class="fa fa-users fa-fw"></i><%= t('labels.admins') %>
+                    <i class="fa fa-user fa-fw"></i><%= t('labels.admins') %>
                   <% end %>
                 </li>
 

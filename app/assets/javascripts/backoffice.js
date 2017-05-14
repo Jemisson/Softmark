@@ -1,5 +1,6 @@
 //= require bootstrap_sb_admin_base_v2
 //= require bootbox
+//= require bootstrap-filestyle
 
 $(document).ready(function(){
 
@@ -87,25 +88,20 @@ $('#generate_token').click(function(){
                   $('#value').val() + "&" + $('#date_time').val());
 });
 
+$('option').addClass("dropdown-item");
+
+/* FILE FIELD */
+$(":file").filestyle({input: false});
+$(":file").filestyle({buttonBefore: true});
+$(":file").filestyle('buttonText','Buscar Imagem');
+$(":file").filestyle('buttonName','btn-primary');
+$(":file").filestyle('placeholder', 'vazio.jpg');
+
+
+
+
 
 
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /**/

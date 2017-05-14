@@ -3,6 +3,7 @@ class Backoffice::AdminsController < BackofficeController
   after_action :verify_authorized, only: :new
   after_action :verify_policy_scoped, only: :index
 
+
   def index
     @admins = policy_scope(Admin)
   end
@@ -35,7 +36,7 @@ class Backoffice::AdminsController < BackofficeController
     end
 
     if @admin.update(params_admin)
-      redirect_to backoffice_admins_path, notice: "O Administrador #{@admin.email} foi atualizado com sucesso"
+      redirect_to backoffice_admins_path, notice: "O Administrador #{@admin.name} foi atualizado com sucesso"
     else
       render :new
     end
@@ -58,7 +59,11 @@ class Backoffice::AdminsController < BackofficeController
     end
 
     def params_admin
-      params.require(:admin).permit(:name, :email, :password, :password_confirmation, :role)
+      if @admin.blank?
+        params.require(:admin).permit(:name, :email, :password, :password_confirmation, :role)
+      else
+        params.require(:admin).permit(policy(@admin).permitted_attributes)
+      end
     end
 
 

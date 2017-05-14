@@ -13,6 +13,7 @@
     enter: Entrar
     email: E-mail
     password: Senha
+    password_confirmation: Confirmação de Senha
     message: Mensagem
     new_message: Nova Mensagem
     send_message_to: Enviar mensagem para %{name}
@@ -31,8 +32,10 @@
     weather: Clima
     category: Categoria
     admins: Administradores
+    admin_area: Área Administrativa
     dashboard: Painel Principal
     advertising: Anúncios
+    listing_users: Listando Usuários
     listing_advertising: Listando Anúncios
     listing_weather: Listando Clima / Tempo
     listing_admins: Listando Administradores
@@ -55,3 +58,7 @@
     value_discount: Valor de Desconto
     coupon_discount: Cupom de Desconto
     coupons_discount: Cupons de Desconto
+    user: Usuário
+    member: Membro
+    result_ads: Estabelecimentos
+    reproduct: Iniciar Exibição

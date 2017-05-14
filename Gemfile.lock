@@ -45,6 +45,7 @@ GEM
       rack (>= 0.9.0)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    bootstrap-filestyle-rails (1.2.1)
     bootstrap_sb_admin_base_v2 (0.3.5)
       font-awesome-rails
       jquery-rails
@@ -79,8 +80,6 @@ GEM
       i18n (~> 0.5)
     font-awesome-rails (4.7.0.2)
       railties (>= 3.2, < 5.2)
-    foreman (0.84.0)
-      thor (~> 0.19.1)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
     i18n (0.8.1)
@@ -205,6 +204,7 @@ PLATFORMS
 
 DEPENDENCIES
   better_errors
+  bootstrap-filestyle-rails
   bootstrap_sb_admin_base_v2
   bundler (>= 1.11.2)
   byebug
@@ -213,7 +213,6 @@ DEPENDENCIES
   devise-i18n
   enum_help
   faker
-  foreman
   jbuilder (~> 2.0)
   jquery-rails
   jquery-ui-rails

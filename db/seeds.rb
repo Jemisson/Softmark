@@ -16,7 +16,15 @@ Admin.create!(name: "Administrador Padrão",
 
 puts "ADMINISTRADOR PADRÃO cadastrado com sucesso"
 
+#############################
 
+puts "Cadastrando MEMBRO PADRÃO"
+Member.create!(name: "Membro Padrão",
+               email: "user@user.com",
+               password: "123456",
+               password_confirmation: "123456")
+
+puts "ADMINISTRADOR MEMBRO cadastrado com sucesso"
 
 #############################
 
@@ -45,3 +53,19 @@ climas.each do |climas|
 end
 
 puts "CLIMAS cadastrados com sucesso!"
+
+#############################
+
+puts "Cadastrando QRCODE VAZIO"
+Qrcode.create!(client: "Nenhum",
+              validity: 0,
+              value: 0,
+              date_time: "2017-05-13T00:43:50-03:00",
+              img_path: "/",
+              token:"vazio")
+
+puts "QRCODE VAZIO cadastrado com sucesso"
+
+
+
+#############################

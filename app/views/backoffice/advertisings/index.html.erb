@@ -38,7 +38,7 @@
                             <tr class="gradeA odd" role="row">
                               <td class="sorting_1"><%= advertising.id%></td>
                               <td><%= image_tag advertising.picture.url(:thumb) %></td>
-                              <td><%= advertising.client%></td>
+                              <td><%= advertising.client.name%></td>
                               <td><%= advertising.category.description%></td>
                               <td><%= advertising.weather.description%></td>
 

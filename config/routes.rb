@@ -1,8 +1,17 @@
 Rails.application.routes.draw do
 
+  get 'admin', to: 'backoffice/dashboard#index'
+
+  namespace :user do
+    resources :members, only: [:index]
+    resources :advertisings, only: [:show]
+  end
+
   namespace :backoffice do
     resources :categories, except: [:show, :destroy]
     resources :admins, except: [:show]
+    resources :members, except: [:show]
+    resources :clients, except: [:show, :destroy]
     resources :weathers, except: [:show, :destroy]
     resources :advertisings, except: [:show]
     resources :qrcodes , except: [:show]
@@ -12,10 +21,10 @@ Rails.application.routes.draw do
   end
 
 
-  root 'backoffice/dashboard#index'
+  root 'user/members#index'
 
   devise_for :admins, :skip => [:registration]
-  devise_for :members
+  devise_for :members, :skip => [:registration]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

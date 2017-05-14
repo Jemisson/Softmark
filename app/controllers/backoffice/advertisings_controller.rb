@@ -2,6 +2,9 @@ class Backoffice::AdvertisingsController < BackofficeController
   before_action :set_advertising, only: [:edit, :update, :destroy]
   before_action :set_category, only: [:new, :edit]
   before_action :set_weather, only: [:new, :edit]
+  before_action :set_qrcode, only: [:new, :edit]
+  before_action :set_client, only: [:new, :edit]
+
 
   def index
     @advertisings = Advertising.all
@@ -17,7 +20,7 @@ class Backoffice::AdvertisingsController < BackofficeController
     if @advertising.errors.any?
       render :new
     else
-      redirect_to backoffice_advertisings_path, notice: "O anúncio de #{@advertising.client} foi salvo com sucesso"
+      redirect_to backoffice_advertisings_path, notice: "O anúncio de #{@advertising.client.name} foi salvo com sucesso"
     end
   end
 
@@ -26,7 +29,7 @@ class Backoffice::AdvertisingsController < BackofficeController
 
   def update
     if @advertising.update(params_advertising)
-      redirect_to backoffice_advertisings_path, notice: "O anúncio de #{@advertising.client} foi atualizado com sucesso"
+      redirect_to backoffice_advertisings_path, notice: "O anúncio de #{@advertising.client.name} foi atualizado com sucesso"
     else
       render :new
     end
@@ -57,9 +60,18 @@ class Backoffice::AdvertisingsController < BackofficeController
       @weather_for_advertising = Weather.all
     end
 
+    def set_qrcode
+      @qrcode_for_advertising = Qrcode.all
+    end
+
+    def set_client
+      @client_for_advertising = Client.all
+    end
+
     def params_advertising
-      params.require(:advertising).permit(:id, :client, :start_date, :end_date,
-                                          :category_id, :weather_id, :picture)
+      params.require(:advertising).permit(:id, :start_date, :end_date, :picture,
+                                          :category_id, :weather_id, :qrcode_id,
+                                          :client_id)
     end
 
 

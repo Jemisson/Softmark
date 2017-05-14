@@ -34,8 +34,8 @@ gem 'enum_help'
 gem 'jquery-ui-rails'
 # Easy file attachment management for ActiveRecord
 gem 'paperclip', '~> 5.0.0'
-
-gem 'foreman'
+# Bootstrap Filestyle for the asset pipeline
+gem 'bootstrap-filestyle-rails'
 
 
 

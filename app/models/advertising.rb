@@ -1,6 +1,8 @@
 class Advertising < ActiveRecord::Base
   belongs_to :category
   belongs_to :weather
+  belongs_to :qrcode
+  belongs_to :client, counter_cache: true
 
   validates_presence_of :picture
 

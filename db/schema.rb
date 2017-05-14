@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170512031925) do
+ActiveRecord::Schema.define(version: 20170514052949) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -34,11 +34,12 @@ ActiveRecord::Schema.define(version: 20170512031925) do
   add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
 
   create_table "advertisings", force: :cascade do |t|
-    t.string   "client"
     t.date     "start_date"
     t.date     "end_date"
     t.integer  "category_id"
     t.integer  "weather_id"
+    t.integer  "qrcode_id"
+    t.integer  "client_id"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
     t.string   "picture_file_name"
@@ -48,12 +49,21 @@ ActiveRecord::Schema.define(version: 20170512031925) do
   end
 
   add_index "advertisings", ["category_id"], name: "index_advertisings_on_category_id"
+  add_index "advertisings", ["client_id"], name: "index_advertisings_on_client_id"
+  add_index "advertisings", ["qrcode_id"], name: "index_advertisings_on_qrcode_id"
   add_index "advertisings", ["weather_id"], name: "index_advertisings_on_weather_id"
 
   create_table "categories", force: :cascade do |t|
     t.string   "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "clients", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.integer  "advertisings_count", default: 0
   end
 
   create_table "members", force: :cascade do |t|
@@ -69,6 +79,7 @@ ActiveRecord::Schema.define(version: 20170512031925) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "name"
   end
 
   add_index "members", ["email"], name: "index_members_on_email", unique: true

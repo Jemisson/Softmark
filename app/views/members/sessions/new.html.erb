@@ -1,26 +1,30 @@
-<h2>Log in</h2>
+<div class="row100">
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+  <%= link_to "Acessar como Administrador", admin_path, class: "btn btn-warning btn-admin"%>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+  <img id="profile-img" class="profile-img-card" src="/images/logo.png" />
 
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4 top30">
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+        <%= f.email_field :email, id:"inputEmail", class:"form-control",
+                  placeholder:t("placeholders.email_address"),autofocus: true %>
+
+        <%= f.password_field :password, autocomplete: "off", id:"inputPassword",
+                class:"form-control", placeholder:t("placeholders.password") %>
+
+        <% if devise_mapping.rememberable? -%>
+          <div class="field">
+            <%= f.check_box :remember_me %>
+            <%= f.label t("buttons.remember_me") %>
+          </div>
+        <% end -%>
+
+        <%= f.submit t("buttons.enter"),
+                class:"btn btn-login btn-lg btn-primary btn-block btn-signin" %>
+      <% end %>
     </div>
-  <% end -%>
+    <div class="col-sm-4"></div>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
-
-<%= render "members/shared/links" %>
+</div>

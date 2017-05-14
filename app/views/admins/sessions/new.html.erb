@@ -5,7 +5,7 @@
     <div class="col-sm-4"></div>
     <div class="col-sm-4 top30">
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-
+      <%= f.label t('labels.admin_area'), class:"uppercase caption_admin" %>
         <%= f.email_field :email, id:"inputEmail", class:"form-control",
                                   placeholder:t("placeholders.email_address"), autofocus: true %>
 

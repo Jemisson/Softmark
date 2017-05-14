@@ -6,7 +6,7 @@
 
     <ul>
       <% @advertising.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
+        <li><%= message %></li>
       <% end %>
     </ul>
 
@@ -25,15 +25,27 @@
         <div class="col-lg-6">
           <%= form_for([:backoffice, @advertising]) do |f| %>
 
-            <div class="form-group">
-              <label><%= t('labels.client') %></label>
-              <%= f.text_field :client, class:"form-control",
-              placeholder:"João da Silva" %>
+            <div class="row">
+              <div class="col-lg-5">
+                <div class="dropdown top">
+                  <label><%= t('labels.client') %></label>
+                  <%= collection_select(:advertising, :client_id, @client_for_advertising, :id, :name, {}, {:class=>"dropdown-menu dropdown-in"}) %>
+                </div>
+              </div>
             </div>
+
+              <div class="row">
+                <div class="col-lg-5">
+                  <div class="dropdown top">
+                    <label><%= t('labels.qrcode') %></label>
+                    <%= collection_select(:advertising, :qrcode_id, @qrcode_for_advertising, :id, :client, {}, {:class=>"dropdown-menu dropdown-in"}) %>
+                  </div>
+                </div>
+              </div>
 
             <div class="row">
               <div class="col-lg-5">
-                <div class="form-group">
+                <div class="form-group top">
                   <label><%= t('labels.startDate') %></label>
                   <%= f.date_field :start_date, class:"form-control datepicker" %>
                 </div>
@@ -51,26 +63,28 @@
 
             <div class="row">
               <div class="col-lg-5">
-                <div class="form-group">
+                <div class="dropdown">
                   <label><%= t('labels.category') %></label>
-                  <%= collection_select(:advertising, :category_id, @categories_for_advertising, :id, :description) %>
+                  <%= collection_select(:advertising, :category_id, @categories_for_advertising, :id, :description, {}, {:class=>"dropdown-menu dropdown-in"})  %>
                 </div>
               </div>
             </div>
 
             <div class="row">
               <div class="col-lg-5">
-                <div class="form-group">
+                <div class="dropdown top">
                   <label><%= t('labels.weather') %></label>
-                  <%= collection_select(:advertising, :weather_id, @weather_for_advertising, :id, :description) %>
+                  <%= collection_select(:advertising, :weather_id, @weather_for_advertising, :id, :description, {}, {:class=>"dropdown-menu dropdown-in"}) %>
                 </div>
               </div>
             </div>
 
-            <div class="form-group">
+            <div class="form-group top">
               <label><%= t('labels.image') %></label>
               <img id="image_preview" src="<%= @advertising.picture.url %>" alt="image">
-              <%= f.file_field :picture, id:"image_field" %>
+              <%= f.file_field :picture, id:"image_field", class:"filestyle",
+                                data:{buttonBefore:"true"} %>
+
             </div>
 
             <button type="submit" class="btn btn-primary"><%= t('buttons.save') %></button>
