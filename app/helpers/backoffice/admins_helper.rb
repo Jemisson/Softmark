@@ -5,7 +5,6 @@ module Backoffice::AdminsHelper
     Admin.roles_i18n.map do |key, value|
       OptionsForRoles.new(key, value)
     end
-
   end
 
 end

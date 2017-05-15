@@ -61,6 +61,10 @@ namespace :dev do
     clients = ["Padaria",
                "Supermercado",
                "Famácia",
+               "Sorveteria",
+               "Cafeteria",
+               "Academia",
+               "Conveniência",
                "Açougue"]
 
     clients.each do |client|
@@ -76,7 +80,7 @@ namespace :dev do
   task generate_advertisings: :environment do
 
     puts "Cadastrando ANUNCIOS"
-    10.times do
+    100.times do
       Advertising.create!(
         client: Client.all.sample,
         start_date: "2017-05-31",

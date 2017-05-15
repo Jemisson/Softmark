@@ -25,18 +25,8 @@
 </head>
 
 <body>
-  <div id="wraper" class="color-all">
-    <%= render partial: "layouts/backoffice_shared/navigation_user" %>
-    <div id="page-wrapper">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-12">
-                  <%= yield %>
-                </div>
-            </div>
-        </div>
-    </div>
-  </div>
+
+  <%= yield %>
 
   <%= javascript_include_tag 'application'%>
   <%= javascript_include_tag 'backoffice'%>

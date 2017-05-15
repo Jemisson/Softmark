@@ -296,6 +296,42 @@
   right: 20px;
 }
 
+/* STYLE FOR SLIDES FULL SCREEN PRESENTATIONS */
+.full-screen {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.carousel-indicators{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
  /**/
