@@ -29,9 +29,9 @@ puts "ADMINISTRADOR MEMBRO cadastrado com sucesso"
 #############################
 
 puts "Cadastrando as CATEGORIAS"
-categories = ["Dia",
-              "Tarde",
-              "Noite"]
+categories = ["dia",
+              "tarde",
+              "noite"]
 
 categories.each do |category|
   Category.find_or_create_by(description: category)

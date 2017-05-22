@@ -1,5 +1,16 @@
 <div id="mycarousel" class="carousel slide" data-ride="carousel">
 
+  <span>Data atual: <%= @date.strftime('%Y-%m-%d').to_s %></span><br>
+  <span>Data atual: <%= @teste %></span><br>
+<%= @ads.each do |ad| %>
+  <span>ID: <%= ad.id %></span><br>
+  <span>Categoria <%= ad.category_id %></span><br>
+  <span>Clima <%= ad.weather_id %></span><br>
+  <span>Inicio <%= ad.start_date %></span><br>
+  <span>Fim <%= ad.end_date %></span><br>
+<% end %>
+
+
   <ol class="carousel-indicators">
     <% @ads.each do |ad| %>
       <li data-target="#mycarousel" data-slide-to="<%= ad.id %>"></li>
