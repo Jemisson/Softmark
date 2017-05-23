@@ -1,0 +1,14 @@
+{
+  "name": "Softmark",
+  "description": "App criado como parte da disciplina de Engenharia de Software",
+  "keywords": [
+    "dokku",
+    "rails",
+    "http://jemison.com"
+  ],
+  "scripts": {
+    "dokku": {
+      "postdeploy": "bundle exec rake dev:setup"
+    }
+  }
+}
