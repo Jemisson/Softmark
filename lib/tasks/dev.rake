@@ -4,8 +4,6 @@ namespace :dev do
   task setup: :environment do
     puts "Executando o setup para desenvolvimento..."
 
-    puts "APAGANDO BD... #{%x(rake db:drop)}"
-    puts "CRIANDO BD... #{%x(rake db:create)}"
     puts %x(rake db:migrate)
     puts %x(rake db:seed)
     puts %x(rake dev:generate_admins)
