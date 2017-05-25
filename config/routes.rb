@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'user/members#index'
 
   get 'admin', to: 'backoffice/dashboard#index'
 
@@ -19,9 +20,6 @@ Rails.application.routes.draw do
     get 'download/:id', to:'qrcodes#download', as:'qr_code'
     get 'dashboard', to: 'dashboard#index'
   end
-
-
-  root 'user/members#index'
 
   devise_for :admins, :skip => [:registration]
   devise_for :members, :skip => [:registration]

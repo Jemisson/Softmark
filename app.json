@@ -5,7 +5,7 @@
   "repository": "https://github.com/Jemisson/Softmark",
   "logo": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Ruby_on_Rails_logo.svg",
   "scripts": {
-    "postdeploy": "bundle exec rake dev:setup"
+    "postdeploy": "bundle exec rake db:migrate"
   },
   "env": {
     "RAILS_ENV": "production",
