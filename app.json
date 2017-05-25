@@ -1,14 +1,16 @@
 {
-  "name": "Softmark",
-  "description": "App criado como parte da disciplina de Engenharia de Software",
-  "keywords": [
-    "dokku",
-    "rails",
-    "http://jemison.com"
-  ],
-  "scripts": {
-    "dokku": {
-      "postdeploy": "bundle exec rake dev:setup"
-    }
-  }
+  "name": "Ruby on Rails",
+  "description": "App criado como parte da disciplina de Engenharia de Software.",
+  "website": "http://rubyonrails.org",
+  "repository": "https://github.com/Jemisson/Softmark",
+  "logo": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Ruby_on_Rails_logo.svg",
+  "scripts": {
+    "postdeploy": "bundle exec rake dev:setup"
+  },
+  "env": {
+    "RAILS_ENV": "production",
+    "RACK_ENV": "production",
+    "RAILS_SERVE_STATIC_FILES": "true"
+  },
+  "addons": ["heroku-postgresql"]
 }
