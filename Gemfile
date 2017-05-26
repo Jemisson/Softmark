@@ -75,15 +75,19 @@ end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
-
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  #Remote multi-server automation tool
+  gem 'capistrano', '~> 3.7'
+  # official Ruby os rails specific taks for Capistrano.
+  gem 'capistrano-bundler', '~> 1.2'
+  #Bundler support for capistrano 3.x
+  gem 'capistrano-rails', '~> 1.2'
+  gem 'capistrano-rvm'
 end
 
 group :production do
   # Heroku dependencies
-  # PostgreSQL
-  gem 'pg'
-  # rails_12factor
-  gem 'rails_12factor'
+  # MySQL
+  gem 'mysql2', '~> 0.3.18'
 end

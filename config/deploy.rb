@@ -1,131 +1,36 @@
-set :ruby_version, '2.3.1'
+# config valid only for current version of Capistrano
+lock "3.8.1"
 
-# Repository project
-set :repository, 'git@github.com:luizpicolo/siai-ifms-na.git'
+set :application, "softmark"
+set :repo_url, "https://github.com/Jemisson/Softmark.git"
 
-# Server Production
-task :production do
-  set :rails_env, 'production'
-  set :user, 'dokku'
-  set :domain, '52.67.3.197'
-  set :deploy_to, '/home/dokku/public_html/softmark'
-  set :branch, 'master'
-end
+# Default branch is :master
+# ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
-# Server Staging
-task :staging do
-  set :rails_env, 'staging'
-  set :user, ''
-  set :domain, ''
-  set :deploy_to, ''
-  set :branch, 'master'
-end
+# Default deploy_to directory is /var/www/my_app_name
+set :deploy_to, "/var/www/softmark"
 
-# Server development
-task :development do
-  set :rails_env, 'development'
-  set :user, ''
-  set :domain, ''
-  set :deploy_to, ''
-  set :branch, ''
-end
+set :branch, "master"
 
-# Fix
-set :term_mode, nil
+# Default value for :format is :airbrussh.
+set :format, :airbrussh
+set :log_level, :debug
 
-# Manually create these paths in shared/ (eg: shared/config/database.yml) in your server.
-# They will be linked in the 'deploy:link_shared_paths' step.
-set :shared_paths, ['config/database.yml', 'log', 'tmp', 'config/application.yml', 'config/secrets.yml']
+# You can configure the Airbrussh format using :format_options.
+# These are the defaults.
+# set :format_options, command_output: true, log_file: "log/capistrano.log", color: :auto, truncate: :auto
 
-# This task is the environment that is loaded for most commands, such as
-# `mina deploy` or `mina rake`.
-task :environment do
-  # If you're using rbenv, use this to load the rbenv environment.
-  # Be sure to commit your .rbenv-version to your repository.
-  # invoke :'rbenv:load'
+# Default value for :pty is false
+# set :pty, true
 
-  # For those using RVM, use this to load an RVM version@gemset.
-  invoke :"rvm:use[ruby-#{ruby_version}@#{user}]"
-end
+# Default value for :linked_files is []
+append :linked_files, "config/database.yml", "config/secrets.yml"
 
-# Put any custom mkdir's in here for when `mina setup` is ran.
-# For Rails apps, we'll make some of the shared paths that are shared between
-# all releases.
-task :setup => :environment do
-  queue! %[mkdir -p "#{deploy_to}/shared/log"]
-  queue! %[chmod g+rx,u+rwx "#{deploy_to}/shared/log"]
+# Default value for linked_dirs is []
+append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
 
-  queue! %[mkdir -p "#{deploy_to}/storage"]
-  queue! %[chmod g+rx,u+rwx "#{deploy_to}/storage"]
+# Default value for default_env is {}
+# set :default_env, { path: "/opt/ruby/bin:$PATH" }
 
-  queue! %[touch "#{deploy_to}/storage/index.html"]
-
-  queue! %[mkdir -p "#{deploy_to}/shared/config"]
-  queue! %[chmod g+rx,u+rwx "#{deploy_to}/shared/config"]
-
-  queue! %[mkdir -p "#{deploy_to}/shared/pids"]
-  queue! %[chmod g+rx,u+rwx "#{deploy_to}/shared/pids"]
-
-  queue! %[mkdir -p "#{deploy_to}/shared/tmp"]
-  queue! %[chmod g+rx,u+rwx "#{deploy_to}/shared/tmp"]
-
-  queue! %[touch "#{deploy_to}/shared/config/database.yml"]
-  queue  %[echo "-----> Be sure to edit 'shared/config/database.yml'."]
-
-  queue! %[touch "#{deploy_to}/shared/config/application.yml"]
-  queue  %[echo "-----> Be sure to edit 'shared/config/application.yml'."]
-
-  queue! %[touch "#{deploy_to}/shared/config/secrets.yml"]
-  queue  %[echo "-----> Be sure to edit 'shared/config/secrets.yml'."]
-end
-
-desc "Deploys the current version to the server."
-task :deploy => :environment do
-  deploy do
-    invoke :'git:clone'
-    invoke :'deploy:link_shared_paths'
-    invoke :'bundle:install'
-    invoke :'rails:db_migrate'
-    invoke :'rails:assets_precompile'
-
-    to :launch do
-      queue %[echo -n "-----> Creating new restart.txt: "]
-      queue "touch #{deploy_to}/shared/tmp/restart.txt"
-    end
-  end
-end
-
-# Roolback
-desc "Rolls back the latest release"
-task :rollback => :environment do
-  queue! %[echo "-----> Rolling back to previous release for instance: #{domain}"]
-
-  # Delete existing sym link and create a new symlink pointing to the previous release
-  queue %[echo -n "-----> Creating new symlink from the previous release: "]
-  queue %[ls "#{deploy_to}/releases" -Art | sort | tail -n 2 | head -n 1]
-  queue! %[ls -Art "#{deploy_to}/releases" | sort | tail -n 2 | head -n 1 | xargs -I active ln -nfs "#{deploy_to}/releases/active" "#{deploy_to}/current"]
-
-  # Remove latest release folder (active release)
-  queue %[echo -n "-----> Deleting active release: "]
-  queue %[ls "#{deploy_to}/releases" -Art | sort | tail -n 1]
-  queue! %[ls "#{deploy_to}/releases" -Art | sort | tail -n 1 | xargs -I active rm -rf "#{deploy_to}/releases/active"]
-
-  queue %[echo -n "-----> Creating new restart.txt: "]
-  queue "touch #{deploy_to}/shared/tmp/restart.txt"
-end
-
-# Maintenance
-# TornOff (Necessary gem https://github.com/biola/turnout)
-desc "TurnOff"
-task :'system:turnoff' => :environment do
-  queue %[echo -n "-----> Turn Off System: "]
-  queue! %[cd "#{deploy_to}/current"]
-  queue "RAILS_ENV=#{rails_env} bundle exec rake maintenance:start"
-end
-
-desc "TurnOn"
-task :'system:turnon' => :environment do
-  queue %[echo -n "-----> Turn Off System: "]
-  queue! %[cd "#{deploy_to}/current"]
-  queue "RAILS_ENV=#{rails_env} bundle exec rake maintenance:end"
-end
+# Default value for keep_releases is 5
+set :keep_releases, 5
