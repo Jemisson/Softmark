@@ -69,7 +69,7 @@ class Backoffice::AdvertisingsController < BackofficeController
     end
 
     def params_advertising
-      params.require(:advertising).permit(:id, :start_date, :end_date, :picture,
+      params.require(:advertising).permit(:start_date, :end_date, :picture,
                                           :category_id, :weather_id, :qrcode_id,
                                           :client_id)
     end
