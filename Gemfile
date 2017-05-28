@@ -84,10 +84,11 @@ group :development do
   #Bundler support for capistrano 3.x
   gem 'capistrano-rails', '~> 1.2'
   gem 'capistrano-rvm'
+  gem 'capistrano3-unicorn'
 end
 
 group :production do
-  # Heroku dependencies
   # MySQL
   gem 'mysql2', '~> 0.3.18'
+  gem 'unicorn'
 end
