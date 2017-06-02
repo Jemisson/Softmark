@@ -10,4 +10,4 @@ worker_processes 4
 timeout 30
 preload_app true
 
-listen '/sockets/softmark.sock', backlog: 64
+listen '/var/www/softmark/current/tmp/sockets/softmark.sock', backlog: 64
