@@ -11,3 +11,4 @@ timeout 30
 preload_app true
 
 listen '/tmp/softmark.sock', backlog: 64
+listen 8080, :tcp_nopush => true
