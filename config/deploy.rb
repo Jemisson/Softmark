@@ -70,7 +70,7 @@ namespace :unicorn do
     end
 
     desc 'Restart Unicorn'
-    task :restart do
+    task :restart 
         before :restart, :stop
         before :restart, :start
     end
