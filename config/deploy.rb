@@ -70,14 +70,22 @@ namespace :unicorn do
     end
 
     desc 'Restart Unicorn'
-    task :restart 
-        before :restart, :stop
-        before :restart, :start
-    end
+    task :restart
+    before :restart, :stop
+    before :restart, :start
+end
 
 namespace :deploy do
   task :restart do
     invoke 'unicorn:stop'
     invoke 'unicorn:start'
   end
+
+
+
+
+
+
+
+
 end
