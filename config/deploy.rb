@@ -38,7 +38,7 @@ set :keep_releases, 5
 after 'deploy:publishing', 'unicorn:restart'
 
 namespace :unicorn do
-    pid_file = Rails.root('tmp', 'pids', 'unicorn.pid').to_s
+    pid_file = File.join('tmp', 'pids', 'unicorn.pid').to_s
     desc 'Stop Unicorn'
     task :stop do
         on roles(:app) do
