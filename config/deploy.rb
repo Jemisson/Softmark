@@ -35,7 +35,7 @@ append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/syst
 # Default value for keep_releases is 5
 set :keep_releases, 5
 
-after 'deploy:publishing', 'unicorn:stop'
+before 'starting', 'unicorn:stop'
 after 'deploy:publishing', 'unicorn:start'
 
 namespace :unicorn do
@@ -44,7 +44,7 @@ namespace :unicorn do
     task :stop do
         on roles(:app) do
             if fetch(:unicorn_pid)
-                execute :kill, fetch(:unicorn_pid)
+                execute :kill, capture(:cat, fetch(:unicorn_pid))
             end            
         end
     end
