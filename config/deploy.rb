@@ -35,8 +35,8 @@ append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/syst
 # Default value for keep_releases is 5
 set :keep_releases, 5
 
-after 'deploy:publishing', 'unicorn:stop'
-after 'deploy:publishing', 'unicorn:start'
+before 'deploy:publishing', 'unicorn:stop'
+after 'deploy:symlink:release', 'unicorn:start'
 
 namespace :unicorn do
     pid_file = File.join('tmp', 'pids', 'unicorn.pid').to_s
