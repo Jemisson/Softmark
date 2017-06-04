@@ -35,7 +35,7 @@ append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/syst
 # Default value for keep_releases is 5
 set :keep_releases, 5
 
-after 'deploy:cleanup', 'unicorn:stop'
+befor 'deploy:starting', 'unicorn:stop'
 after 'deploy:publishing', 'unicorn:start'
 
 namespace :unicorn do
@@ -56,7 +56,7 @@ namespace :unicorn do
         on roles(:app) do
             within current_path do
                 execute :bundle, "exec unicorn -c config/unicorn/production.rb -D"
-                set :default_env, { 
+                set :default_env, {
                     'unicorn_pid' => capture(:cat, pid_file)
                 }
             end
@@ -78,5 +78,5 @@ namespace :unicorn do
     task :restart do
         invoke 'unicorn:stop'
         invoke 'unicorn:start'
-    end    
+    end
 end
