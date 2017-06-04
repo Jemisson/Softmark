@@ -39,14 +39,14 @@ before 'deploy:publishing', 'unicorn:stop'
 after 'deploy:symlink:release', 'unicorn:start'
 
 namespace :unicorn do
-    pid_file = File.join('tmp', 'pids', 'unicorn.pid').to_s
+    pid_id = %x(ps aux | grep "unicorn master" | grep -v grep | awk '{print $2}')
     desc 'Stop Unicorn'
     task :stop do
         on roles(:app) do
             within current_path do
-                if File.exists? pid_file
-                    execute :kill, capture(:cat, pid_file)
-                end
+                if pid_id 
+                    execute :kill, pid_id
+                end                
             end
         end
     end
@@ -56,7 +56,7 @@ namespace :unicorn do
         on roles(:app) do
             within current_path do
                 execute :bundle, "exec unicorn -c config/unicorn/production.rb -D"
-                set :default_env, {
+                set :default_env, { 
                     'unicorn_pid' => capture(:cat, pid_file)
                 }
             end
@@ -78,5 +78,5 @@ namespace :unicorn do
     task :restart do
         invoke 'unicorn:stop'
         invoke 'unicorn:start'
-    end
+    end    
 end
