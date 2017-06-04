@@ -47,7 +47,7 @@ namespace :unicorn do
                     execute :kill, capture(:cat, pid_file)
                 end
             end
-        endd
+        end
 
     desc 'Start Unicorn'
     task :start do
