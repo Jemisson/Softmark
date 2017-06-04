@@ -38,16 +38,15 @@ set :keep_releases, 5
 before 'deploy:publishing', 'unicorn:stop'
 after 'deploy:symlink:release', 'unicorn:start'
 
-namespace :unicorn do
+namespace :unicorn do    
     desc 'Stop Unicorn'
     task :stop do
         on roles(:app) do
-            pid_id = %x(ps aux | grep 'unicorn master' | grep -v grep | awk '{print $2}').strip
-            within current_path do
-                unless pid_id.empty?
-                    execute :kill, pid_id
-                end
-            end
+            begin
+                execute :kill, (`ps aux | grep 'unicorn master' | grep -v grep | awk '{print $2}'`).strip
+            rescue => e
+                puts "Couldn't kill unicorn. Maybe it isn't running"
+            end            
         end
     end
 
@@ -55,21 +54,7 @@ namespace :unicorn do
     task :start do
         on roles(:app) do
             within current_path do
-                execute :bundle, "exec unicorn -c config/unicorn/production.rb -D"
-                set :default_env, {
-                    'unicorn_pid' => capture(:cat, pid_file)
-                }
-            end
-        end
-    end
-
-    desc 'Reload Unicorn without killing master process'
-    task :reload do
-        on roles(:app) do
-            if test("[ -f #{fetch(:unicorn_pid)} ]")
-                execute :kill, '-s USR2', capture(:cat, fetch(:unicorn_pid))
-            else
-                error 'Unicorn process not running'
+                execute :bundle, "exec unicorn -c config/unicorn/production.rb -D"                
             end
         end
     end
@@ -78,5 +63,5 @@ namespace :unicorn do
     task :restart do
         invoke 'unicorn:stop'
         invoke 'unicorn:start'
-    end
+    end    
 end
