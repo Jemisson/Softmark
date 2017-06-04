@@ -82,10 +82,10 @@ namespace :dev do
       Advertising.create!(
         client: Client.all.sample,
         start_date: "2017-05-31",
-        end_date: "2017-05-11",
+        end_date: "2019-05-11",
         category: Category.all.sample,
         weather: Weather.all.sample,
-        picture: File.new(Rails.root.join('public', 'images', 'images-for-ads', "#{Random.rand(7)}.jpg"), 'r')
+        picture: File.new(Rails.root.join('public', 'images', 'images-for-ads', "#{Random.rand(9)}.jpg"), 'r')
         )
     end
     puts "ANUNCIOS cadastrados com sucesso"
