@@ -38,11 +38,14 @@ set :keep_releases, 5
 after 'deploy:publishing', 'unicorn:restart'
 
 namespace :unicorn do
+    pid_file = 'tmp/pids/unicorn.pid'
     desc 'Stop Unicorn'
     task :stop do
-            on roles(:app) do
-            if test("[ -f #{fetch(:unicorn_pid)} ]")
-                execute :kill, capture(:cat, fetch(:unicorn_pid))
+        on roles(:app) do
+            within current_path do
+                if File.exists? pid_file
+                    execute :kill, capture(:cat, pid_file)
+                end
             end
         end
     end
