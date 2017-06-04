@@ -41,12 +41,8 @@ after 'deploy:symlink:release', 'unicorn:start'
 namespace :unicorn do    
     desc 'Stop Unicorn'
     task :stop do
-        on roles(:app) do
-            begin
-                execute :kill, (`ps aux | grep 'unicorn master' | grep -v grep | awk '{print $2}'`).strip
-            rescue => e
-                puts "Couldn't kill unicorn. Maybe it isn't running"
-            end            
+        on roles(:app) do                        
+            execute "if [ -n \"$(ps aux | grep 'unicorn master' | grep -v grep | awk '{print $2}')\" ]; then kill $(ps aux | grep 'unicorn master' | grep -v grep | awk '{print $2}'); fi"
         end
     end
 
