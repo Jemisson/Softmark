@@ -44,7 +44,7 @@ namespace :unicorn do
         on roles(:app) do
             if fetch(:unicorn_pid)
                 execute :kill, capture(:cat, fetch(:unicorn_pid)
-            end
+            end            
         end
     end
 
@@ -52,8 +52,8 @@ namespace :unicorn do
     task :start do
         on roles(:app) do
             within current_path do
-                execute :bundle, "exec unicorn -c config/unicorn/production.rb -D"
-                set :default_env, {
+                execute :bundle, "exec unicorn -c config/unicorn/production.rb -D"                
+                set :default_env, { 
                     'unicorn_pid' => capture(:cat, pid_file)
                 }
             end
@@ -75,5 +75,5 @@ namespace :unicorn do
     task :restart do
         invoke 'unicorn:stop'
         invoke 'unicorn:start'
-    end
+    end    
 end
