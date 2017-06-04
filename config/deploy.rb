@@ -42,7 +42,7 @@ namespace :unicorn do
     desc 'Stop Unicorn'
     task :stop do
         on roles(:app) do
-            pid_id = (execute "(ps aux | grep 'unicorn master' | grep -v grep | awk '{print $2}')").strip
+            pid_id = (execute "ps aux | grep 'unicorn master' | grep -v grep | awk '{print $2}'").strip
             within current_path do
                 unless pid_id.empty?
                     execute :kill, pid_id
