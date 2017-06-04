@@ -38,14 +38,12 @@ set :keep_releases, 5
 after 'deploy:publishing', 'unicorn:restart'
 
 namespace :unicorn do
-    pid_file = 'tmp/pids/unicorn.pid'
+    pid_file = Rails.root('tmp', 'pids', 'unicorn.pid').to_s
     desc 'Stop Unicorn'
     task :stop do
         on roles(:app) do
-            within current_path do
-                if File.exists? pid_file
-                    execute :kill, capture(:cat, pid_file)
-                end
+            if fetch(:unicorn_pid)
+                execute :kill, capture(:cat, fetch(:unicorn_pid)
             end
         end
     end
@@ -55,6 +53,9 @@ namespace :unicorn do
         on roles(:app) do
             within current_path do
                 execute :bundle, "exec unicorn -c config/unicorn/production.rb -D"
+                set :default_env, {
+                    'unicorn_pid' => capture(:cat, pid_file)
+                }
             end
         end
     end
@@ -69,7 +70,6 @@ namespace :unicorn do
             end
         end
     end
-
 
     desc 'Restart Unicorn'
     task :restart do
