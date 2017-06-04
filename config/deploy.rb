@@ -43,7 +43,7 @@ namespace :unicorn do
     task :stop do
         on roles(:app) do
             if fetch(:unicorn_pid)
-                execute :kill, capture(:cat, fetch(:unicorn_pid)
+                execute :kill, capture(:cat, fetch(:unicorn_pid))
             end
         end
     end
