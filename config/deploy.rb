@@ -42,12 +42,12 @@ namespace :unicorn do
     pid_file = File.join('tmp', 'pids', 'unicorn.pid').to_s
     desc 'Stop Unicorn'
     task :stop do
-        on roles(:app) do
-            if fetch(:unicorn_pid)
-                execute :kill, capture(:cat, fetch(:unicorn_pid))
+            on roles(:app) do
+                if File.exists? pid_file
+                    execute :kill, capture(:cat, pid_file)
+                end
             end
-        end
-    end
+        endd
 
     desc 'Start Unicorn'
     task :start do
