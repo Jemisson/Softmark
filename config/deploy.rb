@@ -39,12 +39,12 @@ before 'deploy:publishing', 'unicorn:stop'
 after 'deploy:symlink:release', 'unicorn:start'
 
 namespace :unicorn do
-    pid_id = %x(ps aux | grep "unicorn master" | grep -v grep | awk '{print $2}')
+    pid_id = %x(ps aux | grep "unicorn master" | grep -v grep | awk '{print $2}').strip
     desc 'Stop Unicorn'
     task :stop do
         on roles(:app) do
             within current_path do
-                if pid_id 
+                unless pid_id.blank?
                     execute :kill, pid_id
                 end                
             end
