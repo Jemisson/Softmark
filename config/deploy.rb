@@ -70,6 +70,7 @@ namespace :unicorn do
         end
     end
 
+
     desc 'Restart Unicorn'
     task :restart do
         invoke 'unicorn:stop'
