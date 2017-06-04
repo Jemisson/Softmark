@@ -51,9 +51,7 @@ namespace :unicorn do
     task :start do
         on roles(:app) do
             within current_path do
-                with rails_env: fetch(:rails_env) do
-                execute :bundle, "exec unicorn -c #{fetch(:unicorn_config)} -D"
-                end
+                execute :bundle, "exec unicorn -c config/unicorn/production.rb -D"
             end
         end
     end
