@@ -13,6 +13,8 @@
 
 # Ignore all logfiles and tempfiles.
 /public/system
+/public/qrcodes
+/public/images/original
 /log/*
 !/log/.keep
 /tmp
