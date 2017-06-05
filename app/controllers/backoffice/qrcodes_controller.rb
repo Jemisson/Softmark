@@ -48,7 +48,7 @@ class Backoffice::QrcodesController < BackofficeController
   end
 
   def download
-    send_file "#{Rails.root}/current/public#{@qrcode.img_path}",
+    send_file "#{Rails.root}/public#{@qrcode.img_show}",
       :filename => "qrcode.png",
       :type => "image/png"
   end
