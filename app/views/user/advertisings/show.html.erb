@@ -12,7 +12,7 @@
     <% @ads.each do |ad| %>
 
         <div class="item">
-          <%= image_tag ad.picture.path(:large), class:"img" %>
+          <%= image_tag ad.picture.url(:large), class:"img" %>
         </div>
 
     <% end %>
