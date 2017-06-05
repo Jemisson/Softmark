@@ -7,8 +7,9 @@ class Advertising < ActiveRecord::Base
   validates_presence_of :picture
 
   has_attached_file :picture,
-                              :url => ':rails_root/system/:attachment/:id/:style/:filename.:extension',
-                              :path => ':rails_root/system/:attachment/:id/:style/:filename.:extension',
+                              :url => '/system/:attachment/:id/:style/:filename',
+                              :path => ':rails_root/public/system/:attachment/:id/:style/:filename',
+                              :storage => :filesystem,
                               styles: { large:"1920x1080#", thumb: "100x100>" },
                                       default_url: "/images/:style/missing.png"
 
