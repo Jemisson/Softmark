@@ -5,18 +5,18 @@ class User::AdvertisingsController < ApplicationController
 
   def show
      @date = Time.now
-     #@ads = Advertising.where(client: params[:id]) # FOR USE WITHOUT HASH
-     hash = data_clima_tempo
+     @ads = Advertising.where(client: params[:id]) # FOR USE WITHOUT HASH
+    # hash = data_clima_tempo
 
     #                        @ads = Advertising.where(client_id = params[:id])
     #                         .where(start_date >= Time.now.strftime("%Y-%m-%d"))
     #                         .where (end_Date <= Date.now())
     #                         .where(category_id => Category.where(description = hash['currently'])) and teperatura BETWEEN hash["max"] AND hash["MIN"] )
 
-     @ads = Advertising.find_by_sql("select * from advertisings
-                                     where client_id = #{params[:id]}
-                                     and category_id = (
-                                     select id from categories where description like '%#{hash['currently']}%')")
+     #@ads = Advertising.find_by_sql("select * from advertisings
+                                #     where client_id = #{params[:id]}
+                                #     and category_id = (
+                                  #   select id from categories where description like '%#{hash['currently']}%')")
   end
 
 
