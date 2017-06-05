@@ -66,7 +66,6 @@ class Backoffice::QrcodesController < BackofficeController
     def generate_qrcode
       img_show = "/qrcodes/#{DateTime.now()}.png"
       img_path = "/var/www/softmark/current/public#{img_show}"
-      # teste
       @qr = RQRCode::QRCode.new(@qrcode.token, :size => 10)
       png = @qr.to_img
       png.resize(300, 300).save(img_path)
