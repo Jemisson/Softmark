@@ -25,7 +25,7 @@ class User::AdvertisingsController < ApplicationController
         config.locale = :en
       end
       HG::Weather.temperature = :celsius
-      @weather = HG::Weather.get(client_ip: :remote)
+      @weather = HG::Weather.get(woeid: '455912')
     end
 
 end
