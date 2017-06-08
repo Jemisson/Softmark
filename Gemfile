@@ -37,7 +37,7 @@ gem 'paperclip', '~> 5.0.0'
 # Bootstrap Filestyle for the asset pipeline
 gem 'bootstrap-filestyle-rails'
 # Communication with Clima Tempo accessing information about the weather of Brazil.
-gem 'previsao-clima-tempo'
+gem 'hg-weather'
 
 
 

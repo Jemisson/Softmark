@@ -1,12 +1,10 @@
 class User::AdvertisingsController < ApplicationController
-  include User::AdvertisingsHelper
+  before_action :setup_weather, only: [:show]
   layout "presentation"
-
+  require "hg/weather"
 
   def show
-     @date = Time.now
      @ads = Advertising.where(client: params[:id]) # FOR USE WITHOUT HASH
-    # hash = data_clima_tempo
 
     #                        @ads = Advertising.where(client_id = params[:id])
     #                         .where(start_date >= Time.now.strftime("%Y-%m-%d"))
@@ -19,7 +17,16 @@ class User::AdvertisingsController < ApplicationController
                                   #   select id from categories where description like '%#{hash['currently']}%')")
   end
 
+  private
 
+    def setup_weather
+      HG::Weather.setup do |config|
+        config.api_key = '73151c61'
+        config.locale = :en
+      end
+      HG::Weather.temperature = :celsius
+      @weather = HG::Weather.get(client_ip: :remote)
+    end
 
 end
 
