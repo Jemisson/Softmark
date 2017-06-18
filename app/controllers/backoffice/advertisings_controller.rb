@@ -36,10 +36,10 @@ class Backoffice::AdvertisingsController < BackofficeController
   end
 
   def destroy
-    adv_cli = @advertising.client
+    adv_cli = @advertising.client.name
 
     if @advertising.destroy
-      redirect_to backoffice_advertisings_path, notice: "O anúncio #{adv_cli} foi excluído com sucesso"
+      redirect_to backoffice_advertisings_path, notice: "O anúncio (#{adv_cli}) foi excluído com sucesso"
     else
       render :index
     end

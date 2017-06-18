@@ -10,7 +10,7 @@ class Advertising < ActiveRecord::Base
                     :url => '/system/:attachment/:id/:style/:filename',
                     :path => ':rails_root/public/system/:attachment/:id/:style/:filename',
                     :storage => :filesystem,
-                    styles: { large:"1920x1080#", thumb: "100x100>" },
+                    styles: { large:"1280x720>", thumb: "100x100>" },
                     default_url: "/images/:style/missing.png"
 
 

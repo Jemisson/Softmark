@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -13,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 20170514052949) do
 
-  create_table "admins", force: :cascade do |t|
+  create_table "admins", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
@@ -28,12 +27,11 @@ ActiveRecord::Schema.define(version: 20170514052949) do
     t.datetime "updated_at",                          null: false
     t.string   "name"
     t.integer  "role"
+    t.index ["email"], name: "index_admins_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true, using: :btree
   end
 
-  add_index "admins", ["email"], name: "index_admins_on_email", unique: true
-  add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
-
-  create_table "advertisings", force: :cascade do |t|
+  create_table "advertisings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.date     "start_date"
     t.date     "end_date"
     t.integer  "category_id"
@@ -46,27 +44,26 @@ ActiveRecord::Schema.define(version: 20170514052949) do
     t.string   "picture_content_type"
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
+    t.index ["category_id"], name: "index_advertisings_on_category_id", using: :btree
+    t.index ["client_id"], name: "index_advertisings_on_client_id", using: :btree
+    t.index ["qrcode_id"], name: "index_advertisings_on_qrcode_id", using: :btree
+    t.index ["weather_id"], name: "index_advertisings_on_weather_id", using: :btree
   end
 
-  add_index "advertisings", ["category_id"], name: "index_advertisings_on_category_id"
-  add_index "advertisings", ["client_id"], name: "index_advertisings_on_client_id"
-  add_index "advertisings", ["qrcode_id"], name: "index_advertisings_on_qrcode_id"
-  add_index "advertisings", ["weather_id"], name: "index_advertisings_on_weather_id"
-
-  create_table "categories", force: :cascade do |t|
+  create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
 
-  create_table "clients", force: :cascade do |t|
+  create_table "clients", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
     t.integer  "advertisings_count", default: 0
   end
 
-  create_table "members", force: :cascade do |t|
+  create_table "members", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
@@ -80,15 +77,14 @@ ActiveRecord::Schema.define(version: 20170514052949) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "name"
+    t.index ["email"], name: "index_members_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_members_on_reset_password_token", unique: true, using: :btree
   end
 
-  add_index "members", ["email"], name: "index_members_on_email", unique: true
-  add_index "members", ["reset_password_token"], name: "index_members_on_reset_password_token", unique: true
-
-  create_table "qrcodes", force: :cascade do |t|
+  create_table "qrcodes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "date_time"
     t.integer  "validity"
-    t.float    "value"
+    t.string   "value"
     t.string   "client"
     t.string   "img_path"
     t.string   "token"
@@ -96,7 +92,7 @@ ActiveRecord::Schema.define(version: 20170514052949) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "weathers", force: :cascade do |t|
+  create_table "weathers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "description"
     t.integer  "maxTemp"
     t.integer  "minTemp"
@@ -104,4 +100,8 @@ ActiveRecord::Schema.define(version: 20170514052949) do
     t.datetime "updated_at",  null: false
   end
 
+  add_foreign_key "advertisings", "categories"
+  add_foreign_key "advertisings", "clients"
+  add_foreign_key "advertisings", "qrcodes"
+  add_foreign_key "advertisings", "weathers"
 end

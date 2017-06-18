@@ -42,15 +42,10 @@ puts "CATEGORIAS cadastradas com sucesso"
 
 puts "Cadastrando CLIMAS..."
 
-climas = ["Ensolarado",
-          "Nublado",
-          "Chuvoso"]
+Weather.find_or_create_by(description: "Ensolarado",minTemp: 28, maxTemp: 60)
+Weather.find_or_create_by(description: "Nublado",minTemp: 19, maxTemp: 27)
+Weather.find_or_create_by(description: "Frio",minTemp: 0, maxTemp: 17)
 
-climas.each do |climas|
-  Weather.find_or_create_by(description: climas,
-                            minTemp: "#{Random.rand(15)}",
-                            maxTemp: "#{Random.rand(15)}")
-end
 
 puts "CLIMAS cadastrados com sucesso!"
 
@@ -60,7 +55,7 @@ puts "Cadastrando QRCODE VAZIO"
 Qrcode.create!(client: "Nenhum",
               validity: 0,
               value: 0,
-              date_time: "2017-05-13T00:43:50-03:00",
+              date_time: "0000-00-00T00:00:00-00:00",
               img_path: "/",
               token:"vazio")
 

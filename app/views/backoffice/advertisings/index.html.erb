@@ -26,8 +26,6 @@
                             <th class="sorting_asc">#</th>
                             <th class="sorting_asc"><%= t('labels.image') %></th>
                             <th class="sorting_asc"><%= t('labels.client') %></th>
-                            <th class="sorting_asc"><%= t('labels.category') %></th>
-                            <th class="sorting_asc"><%= t('labels.weather') %></th>
                             <th><%= t('labels.edit') %></th>
                             <th><%= t('labels.delete') %></th>
                           </tr>
@@ -39,8 +37,6 @@
                               <td class="sorting_1"><%= advertising.id%></td>
                               <td><%= image_tag advertising.picture.url(:thumb) %></td>
                               <td><%= advertising.client.name%></td>
-                              <td><%= advertising.category.description%></td>
-                              <td><%= advertising.weather.description%></td>
 
                               <td class="option-btn">
                                 <%= link_to edit_backoffice_advertising_path(advertising),
