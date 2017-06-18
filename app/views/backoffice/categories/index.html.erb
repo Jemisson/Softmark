@@ -24,7 +24,9 @@
                         <thead>
                           <tr role="row">
                             <th class="sorting_asc">#</th>
-                            <th class="sorting_asc">Descrição</th>
+
+                            <th class="sorting_asc"><%= t('labels.description') %></th>
+                            
                             <th><%= t('labels.edit') %></th>
                           </tr>
                         </thead>
@@ -32,14 +34,18 @@
                         <tbody>
                           <% @categories.each do |category|%>
                             <tr class="gradeA odd" role="row">
+
                               <td class="sorting_1"><%= category.id%></td>
+
                               <td><%= category.description%></td>
+
                               <td class="option-btn">
                                 <%= link_to edit_backoffice_category_path(category),
                                 class:"btn btn-primary btn-circle" do%>
                                 <i class="fa fa-edit"></i>
                                 <% end %>
                               </td>
+
                             </tr>
                           <% end %>
                         </tbody>

@@ -23,12 +23,23 @@
 
       <div class="panel-body">
         <div class="col-lg-6">
+
           <%= form_for([:backoffice, @category]) do |f| %>
             <div class="form-group">
-              <label>Descrição</label>
+              <label><%= t('labels.description') %></label>
               <%= f.text_field :description, class:"form-control",
               placeholder:"Enter text" %>
             </div>
+
+            <!-- <label><%= t('labels.begin') %></label>
+            <div class="form-group">
+              <%= f.time_field :start_time, class:"form-control" %>
+            </div>
+
+            <label><%= t('labels.end') %></label>
+            <div class="form-group">
+              <%= f.time_field :end_time, class:"form-control" %>
+            </div> -->
 
             <button type="submit" class="btn btn-primary"><%= t('buttons.save') %></button>
 

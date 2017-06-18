@@ -4,12 +4,22 @@ class User::AdvertisingsController < ApplicationController
   require "hg/weather"
 
   def show
+    @test = Advertising.find_by_sql("SELECT * FROM advertisings WHERE client_id = #{params[:id]}")
     # @ads = Advertising.where(client: params[:id]) # FOR USE WITHOUT HASH
     @ads = Advertising.find_by_sql("
         SELECT *
         FROM advertisings
-        WHERE client_id = #{params[:id]}")
+        WHERE client_id = #{params[:id]}
+        AND start_date <= '#{Date.today}'
+        AND end_date >= '#{Date.today}'
+        AND weather_id in (
+            SELECT id
+            FROM weathers
+            WHERE maxTemp >= '#{@weather.condition.temperature.celsius}'
+            AND   minTemp <= '#{@weather.condition.temperature.celsius}') ")
+
   end
+
 
   private
 

@@ -20,7 +20,8 @@ class Backoffice::AdvertisingsController < BackofficeController
     if @advertising.errors.any?
       render :new
     else
-      redirect_to backoffice_advertisings_path, notice: "O anúncio de #{@advertising.client.name} foi salvo com sucesso"
+      redirect_to new_backoffice_advertising_path, notice: "O anúncio de #{@advertising.client.name} foi salvo com sucesso"
+      # redirect_to backoffice_advertisings_path, notice: "O anúncio de #{@advertising.client.name} foi salvo com sucesso"
     end
   end
 
