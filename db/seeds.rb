@@ -52,7 +52,7 @@ puts "CLIMAS cadastrados com sucesso!"
 #############################
 
 puts "Cadastrando QRCODE VAZIO"
-Qrcode.create!(client: "Nenhum",
+Qrcode.create!(client: "Não Informado",
               validity: 0,
               value: 0,
               date_time: "0000-00-00T00:00:00-00:00",
