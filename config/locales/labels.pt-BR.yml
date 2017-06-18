@@ -40,6 +40,7 @@
     listing_weather: Listando Clima / Tempo
     listing_admins: Listando Administradores
     listing_qrcodes: Listando Cupons de Desconto
+    listing_coupon: Listando Cupons
     client: Cliente
     finishDate: Data Fim
     startDate: Data Início
@@ -64,3 +65,6 @@
     reproduct: Iniciar Exibição
     begin: Início
     end: Fim
+    coupon: Cupom de Desconto
+    phone: Telefone
+    download: Baixar
