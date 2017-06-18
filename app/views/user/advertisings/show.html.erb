@@ -1,29 +1,3 @@
-<%= @weather.condition.temperature.celsius %><br>
-<% @test.each do |ts| %>
-     <%= ts.weather.maxTemp >= @weather.condition.temperature.celsius  %>
-     <%= ts.weather.minTemp <= @weather.condition.temperature.celsius  %>
-     max <%= ts.weather.maxTemp %>
-     min <%= ts.weather.minTemp %></span><br>
-
-<% end %>
-<span>________________________________________________________</span><br>
-
-<% @test.each do |ts| %>
-  <span><%= ts.start_date <= Date.today %></span>
-  <span><%= ts.end_date >= Date.today %></span>
-  <span>ini <%= ts.start_date %> || fim <%= ts.end_date %>
-     max <%= ts.weather.maxTemp %>
-     min <%= ts.weather.minTemp %></span><br>
-<% end %>
-<span>________________________________________________________</span><br>
-<% @ads.each do |ad| %>
-  <span><%= ad.id %></span><br>
-  <span><%= ad.start_date <= Date.today %></span>
-  <span><%= ad.end_date >= Date.today %></span>
-  <span> ini <%= ad.start_date%> || fim <%= ad.end_date %></span><br>
-<% end %>
-<br><span><%= Date.today %></span>
-
 <div id="mycarousel" class="carousel slide" data-ride="carousel">
 
   <ol class="carousel-indicators">
