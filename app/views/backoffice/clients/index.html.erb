@@ -26,6 +26,7 @@
                           <tr role="row">
                             <th class="sorting_asc">#</th>
                             <th class="sorting_asc"><%= t('labels.name') %></th>
+                            <th class="sorting_asc"><%= t('labels.time_exec') %></th>
                             <th><%= t('labels.edit') %></th>
                           </tr>
                         </thead>
@@ -35,6 +36,7 @@
                             <tr class="gradeA odd" role="row">
                               <td class="sorting_1"><%= client.id%></td>
                               <td><%= client.name%></td>
+                              <td><%= client.millisec%></td>
                               <td class="option-btn">
                                 <%= link_to edit_backoffice_client_path(client),
                                 class:"btn btn-primary btn-circle" do%>
@@ -43,7 +45,7 @@
                               </td>
                             </tr>
                           <% end %>
-                          
+
                         </tbody>
 
                       </table>

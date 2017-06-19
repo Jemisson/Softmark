@@ -120,8 +120,10 @@ $(window).on('resize', function (){
   $item.height($wHeight);
 });
 
+var tmp = $('#millisec').val()
+
 $('.carousel').carousel({
-  interval: 3000,
+  interval: tmp,
   pause: "false"
 });
 

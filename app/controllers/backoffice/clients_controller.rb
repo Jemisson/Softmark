@@ -38,7 +38,7 @@ class Backoffice::ClientsController < BackofficeController
     end
 
     def params_client
-      params.require(:client).permit(:name)
+      params.require(:client).permit(:name, :millisec)
     end
 
 

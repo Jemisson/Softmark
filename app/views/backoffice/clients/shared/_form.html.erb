@@ -27,7 +27,13 @@
             <div class="form-group">
               <label><%= t('labels.name') %></label>
               <%= f.text_field :name, class:"form-control", autofocus:"autofocus",
-              placeholder:"Supermercado XZ" %>
+                placeholder:"Supermercado XZ" %>
+            </div>
+
+            <div class="form-group">
+              <label><%= t('labels.time_exec') %></label>
+              <%= f.number_field :millisec, class:"form-control",
+                  placeholder:"1000 = 1sec"%>
             </div>
 
             <button type="submit" class="btn btn-primary"><%= t('buttons.save') %></button>

@@ -4,6 +4,7 @@ class User::AdvertisingsController < ApplicationController
   require "hg/weather"
 
   def show
+    @cli = Client.find(params[:id])
     @ads = Advertising.find_by_sql("
         SELECT *
         FROM advertisings
