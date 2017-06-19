@@ -27,7 +27,7 @@ set :log_level, :debug
 append :linked_files, "config/database.yml", "config/secrets.yml"
 
 # Default value for linked_dirs is []
-append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
+append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system", "public/qrcodes"
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
@@ -38,10 +38,10 @@ set :keep_releases, 5
 before 'deploy:publishing', 'unicorn:stop'
 after 'deploy:symlink:release', 'unicorn:start'
 
-namespace :unicorn do    
+namespace :unicorn do
     desc 'Stop Unicorn'
     task :stop do
-        on roles(:app) do                        
+        on roles(:app) do
             execute "if [ -n \"$(ps aux | grep 'unicorn master' | grep -v grep | awk '{print $2}')\" ]; then kill $(ps aux | grep 'unicorn master' | grep -v grep | awk '{print $2}'); fi"
         end
     end
@@ -50,7 +50,7 @@ namespace :unicorn do
     task :start do
         on roles(:app) do
             within current_path do
-                execute :bundle, "exec unicorn -c config/unicorn/production.rb -D"                
+                execute :bundle, "exec unicorn -c config/unicorn/production.rb -D"
             end
         end
     end
@@ -59,5 +59,5 @@ namespace :unicorn do
     task :restart do
         invoke 'unicorn:stop'
         invoke 'unicorn:start'
-    end    
+    end
 end
