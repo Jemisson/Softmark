@@ -38,7 +38,7 @@ class Backoffice::WeathersController < BackofficeController
     end
 
     def params_weather
-      params.require(:weather).permit(:description, :minTemp, :maxTemp)
+      params.require(:weather).permit(:description, :min_temp, :max_temp)
     end
 
 end

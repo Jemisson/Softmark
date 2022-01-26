@@ -13,9 +13,9 @@ class User::AdvertisingsController < ApplicationController
         AND end_date >= '#{Date.today}'
         AND weather_id in (
             SELECT id
-            FROM weathers
-            WHERE maxTemp >= '#{@weather.condition.temperature.celsius}'
-            AND   minTemp <= '#{@weather.condition.temperature.celsius}') ")
+            FROM weathers w
+            WHERE w.max_temp >= '#{@weather.condition.temperature.celsius.to_i}'
+            AND   w.min_temp <= '#{@weather.condition.temperature.celsius.to_i}') ")
   end
 
   private

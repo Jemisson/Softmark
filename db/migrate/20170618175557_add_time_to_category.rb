@@ -1,4 +1,4 @@
-class AddTimeToCategory < ActiveRecord::Migration[5.0]
+class AddTimeToCategory < ActiveRecord::Migration[4.2]
   def change
     add_column :categories, :start_time, :time
     add_column :categories, :end_time, :time

@@ -1,4 +1,4 @@
-class AddAttachmentPictureToAdvertisings < ActiveRecord::Migration
+class AddAttachmentPictureToAdvertisings < ActiveRecord::Migration[4.2]
   def self.up
     change_table :advertisings do |t|
       t.attachment :picture

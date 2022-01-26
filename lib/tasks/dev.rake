@@ -4,6 +4,10 @@ namespace :dev do
   task setup: :environment do
     puts "Executando o setup para desenvolvimento..."
 
+    puts "APAGANDO BD... #{%x(rake db:drop)}"
+    puts "CRIANDO BD... #{%x(rake db:create)}"
+    puts %x(rake db:migrate)
+    puts %x(rake db:seed)
     puts %x(rake dev:generate_admins)
     puts %x(rake dev:generate_members)
     puts %x(rake dev:generate_clients)
@@ -64,7 +68,10 @@ namespace :dev do
                "Açougue"]
 
     clients.each do |client|
-      Client.find_or_create_by(name: client)
+      Client.find_or_create_by(
+        name: client,
+        millisec: 3
+      )
     end
     puts "CLIENTES cadastrados com sucesso"
 
@@ -79,8 +86,8 @@ namespace :dev do
     100.times do
       Advertising.create!(
         client: Client.all.sample,
-        start_date: "2017-05-31",
-        end_date: "2019-05-11",
+        start_date: "2022-01-01",
+        end_date: "2022-12-31",
         category: Category.all.sample,
         weather: Weather.all.sample,
         picture: File.new(Rails.root.join('public', 'images', 'images-for-ads', "#{Random.rand(9)}.jpg"), 'r')

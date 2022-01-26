@@ -1,52 +1,53 @@
-class Backoffice::AdvertisingsController < BackofficeController
-  before_action :set_advertising, only: [:edit, :update, :destroy]
-  before_action :set_category, only: [:new, :edit]
-  before_action :set_weather, only: [:new, :edit]
-  before_action :set_qrcode, only: [:new, :edit]
-  before_action :set_client, only: [:new, :edit]
+# frozen_string_literal: true
 
+module Backoffice
+  # Advertisings Controller
+  class AdvertisingsController < BackofficeController
+    before_action :set_advertising, only: %i[edit update destroy]
+    before_action :set_category, only: %i[new edit]
+    before_action :set_weather, only: %i[new edit]
+    before_action :set_qrcode, only: %i[new edit]
+    before_action :set_client, only: %i[new edit]
 
-  def index
-    @advertisings = Advertising.all
-  end
-
-  def new
-    @advertising = Advertising.new
-  end
-
-  def create
-    @advertising = AdvertisingService.create(params_advertising)
-
-    if @advertising.errors.any?
-      render :new
-    else
-      redirect_to backoffice_advertisings_path, notice: "O anúncio de #{@advertising.client.name} foi salvo com sucesso"
+    def index
+      @advertisings = Advertising.includes(:client).all
     end
-  end
 
-  def edit
-  end
-
-  def update
-    if @advertising.update(params_advertising)
-      redirect_to backoffice_advertisings_path, notice: "O anúncio de #{@advertising.client.name} foi atualizado com sucesso"
-    else
-      render :new
+    def new
+      @advertising = Advertising.new
     end
-  end
 
-  def destroy
-    adv_cli = @advertising.client.name
+    def create
+      @advertising = AdvertisingService.create(params_advertising)
 
-    if @advertising.destroy
-      redirect_to backoffice_advertisings_path, notice: "O anúncio (#{adv_cli}) foi excluído com sucesso"
-    else
-      render :index
+      if @advertising.errors.any?
+        render :new
+      else
+        redirect_to backoffice_advertisings_path, notice: "#{@advertising.client.name} foi salvo com sucesso"
+      end
     end
-  end
 
+    def edit; end
 
-  private
+    def update
+      if @advertising.update(params_advertising)
+        redirect_to backoffice_advertisings_path, notice: "#{@advertising.client.name} foi atualizado com sucesso"
+      else
+        render :new
+      end
+    end
+
+    def destroy
+      adv_cli = @advertising.client.name
+
+      if @advertising.destroy
+        redirect_to backoffice_advertisings_path, notice: "O anúncio (#{adv_cli}) foi excluído com sucesso"
+      else
+        render :index
+      end
+    end
+
+    private
 
     def set_advertising
       @advertising = Advertising.find(params[:id])
@@ -73,7 +74,5 @@ class Backoffice::AdvertisingsController < BackofficeController
                                           :category_id, :weather_id, :qrcode_id,
                                           :client_id)
     end
-
-
-
+  end
 end

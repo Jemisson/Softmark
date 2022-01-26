@@ -1,15 +1,18 @@
 source 'https://rubygems.org'
 ruby "2.4.0"
 
-gem 'bundler', '>=1.11.2'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '5.0.1'
+gem 'rails', '~> 5.2.4', '>= 5.2.4.2'
+# Use postgresql as the database for Active Record
+gem 'pg', '>= 0.18', '< 2.0'
+# Use Puma as the app server
+gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.1.0'
+gem 'coffee-rails', '~> 4.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
@@ -38,8 +41,7 @@ gem 'paperclip', '~> 5.0.0'
 gem 'bootstrap-filestyle-rails'
 # Communication with Clima Tempo accessing information about the weather of Brazil.
 gem 'hg-weather'
-
-
+gem 'rubocop', require: false
 
 source 'https://rails-assets.org' do
   # alert messages
@@ -84,10 +86,4 @@ group :development do
   #Bundler support for capistrano 3.x
   gem 'capistrano-rails', '~> 1.2'
   gem 'capistrano-rvm'
-end
-
-group :production do
-  # MySQL
-  gem 'mysql2', '~> 0.3.18'
-  gem 'unicorn'
 end

@@ -1,4 +1,4 @@
-class CreateQrcodes < ActiveRecord::Migration
+class CreateQrcodes < ActiveRecord::Migration[4.2]
   def change
     create_table :qrcodes do |t|
       t.datetime :date_time

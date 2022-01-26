@@ -1,4 +1,4 @@
-class CreateAdvertisings < ActiveRecord::Migration
+class CreateAdvertisings < ActiveRecord::Migration[4.2]
   def change
     create_table :advertisings do |t|
       t.date :start_date

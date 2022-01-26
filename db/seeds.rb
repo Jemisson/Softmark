@@ -42,10 +42,9 @@ puts "CATEGORIAS cadastradas com sucesso"
 
 puts "Cadastrando CLIMAS..."
 
-Weather.find_or_create_by(description: "Ensolarado",minTemp: 28, maxTemp: 60)
-Weather.find_or_create_by(description: "Nublado",minTemp: 19, maxTemp: 27)
-Weather.find_or_create_by(description: "Frio",minTemp: 0, maxTemp: 17)
-
+Weather.find_or_create_by(description: "Ensolarado",min_temp: 28, max_temp: 60)
+Weather.find_or_create_by(description: "Nublado",min_temp: 19, max_temp: 27)
+Weather.find_or_create_by(description: "Frio",min_temp: 0, max_temp: 17)
 
 puts "CLIMAS cadastrados com sucesso!"
 

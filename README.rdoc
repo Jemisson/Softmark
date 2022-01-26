@@ -1,14 +1,29 @@
-SOFTMARK - SOFTWARE DE MARKETING DIGITAL COM O USO DE PROPAGANDA
+# SOFTMARK - DIGITAL MARKETING SOFTWARE USING ADVERTISING
 
-UNIFESP - São José dos Campos
+** UNIFESP - Federal University of São José dos Campos **
 
-Disciplina Engenharia de Software
+Subject: Software Engineering
 
+Softmark is a software to play advertisements according to weather conditions and days of the week.
 
+Prerequisites
+===
 
--- Instalação --
+> Ruby 2.4.0
+> Rails 5.2
 
-Após clonar/download o projeto acesse a pasta via terminal e execute os comandos:
+Instalation
+===
+
+Clone project:
+
+``` git clone https://github.com/Jemisson/Softmark.git```
+
+Basic configuration
+===
+
+Create config/database.yml
+
 
 1º bundle
 
