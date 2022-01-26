@@ -1,3 +1,7 @@
+[![Rubocop](https://github.com/Jemisson/Softmark/actions/workflows/rubocop-analysis.yml/badge.svg)](https://github.com/Jemisson/Softmark/actions/workflows/rubocop-analysis.yml)
+
+[![Brakeman Scan](https://github.com/Jemisson/Softmark/actions/workflows/brakeman-analysis.yml/badge.svg)](https://github.com/Jemisson/Softmark/actions/workflows/brakeman-analysis.yml)
+
 # SOFTMARK - DIGITAL MARKETING SOFTWARE USING ADVERTISING
 
 ** UNIFESP - Federal University of São José dos Campos **
