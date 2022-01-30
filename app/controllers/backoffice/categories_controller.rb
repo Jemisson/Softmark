@@ -2,6 +2,7 @@
 
 module Backoffice
   class CategoriesController < BackofficeController
+
     before_action :set_category, only: %i[edit update]
 
     def index
@@ -33,7 +34,6 @@ module Backoffice
     end
 
     private
-
     def set_category
       @category = Category.find(params[:id])
     end
@@ -41,5 +41,6 @@ module Backoffice
     def params_category
       params.require(:category).permit(:description)
     end
+
   end
 end

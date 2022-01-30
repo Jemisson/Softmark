@@ -2,6 +2,7 @@
 
 module Backoffice
   class QrcodesController < BackofficeController
+
     require 'rqrcode'
     before_action :set_qrcode, only: %i[edit update destroy generate download]
 
@@ -55,7 +56,6 @@ module Backoffice
     end
 
     private
-
     def set_qrcode
       @qrcode = Qrcode.find(params[:id])
     end
@@ -72,5 +72,6 @@ module Backoffice
       png.resize(300, 300).save(img_path)
       @qrcode.update(img_path: img_show)
     end
+
   end
 end

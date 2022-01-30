@@ -2,6 +2,7 @@
 
 module Backoffice
   class ClientsController < BackofficeController
+
     before_action :set_client, only: %i[edit update]
 
     def index
@@ -33,7 +34,6 @@ module Backoffice
     end
 
     private
-
     def set_client
       @client = Client.find(params[:id])
     end
@@ -41,5 +41,6 @@ module Backoffice
     def params_client
       params.require(:client).permit(:name, :millisec)
     end
+
   end
 end

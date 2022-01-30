@@ -3,6 +3,7 @@
 module Backoffice
   module MembersController
     class MemberService
+
       attr_accessor :member
 
       def self.create(params_member)
@@ -12,6 +13,7 @@ module Backoffice
 
         @member
       end
+
     end
   end
 end

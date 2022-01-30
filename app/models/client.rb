@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
-class Client < ActiveRecord::Base
+class Client < ApplicationRecord
+
   # Associations
   has_many :advertisings
+
 end

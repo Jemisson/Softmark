@@ -3,6 +3,7 @@
 module Backoffice
   module QrcodesController
     class QrcodeService
+
       attr_accessor :qrcode
 
       def self.create(params_qrcode)
@@ -12,6 +13,7 @@ module Backoffice
 
         @qrcode
       end
+
     end
   end
 end

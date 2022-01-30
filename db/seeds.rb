@@ -31,8 +31,8 @@ puts 'ADMINISTRADOR MEMBRO cadastrado com sucesso'
 
 puts 'Cadastrando as CATEGORIAS'
 categories = %w[dia
-                tarde
-                noite]
+  tarde
+  noite]
 
 categories.each do |category|
   Category.find_or_create_by(description: category)

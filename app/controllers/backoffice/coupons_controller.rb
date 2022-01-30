@@ -2,6 +2,7 @@
 
 module Backoffice
   class CouponsController < BackofficeController
+
     before_action :set_coupon, only: %i[edit update]
 
     def index
@@ -19,7 +20,6 @@ module Backoffice
     end
 
     private
-
     def set_coupon
       @coupon = Coupon.find(params[:id])
     end
@@ -27,5 +27,6 @@ module Backoffice
     def params_coupon
       params.require(:coupon).permit(:status)
     end
+
   end
 end

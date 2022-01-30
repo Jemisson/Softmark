@@ -2,6 +2,7 @@
 
 module Backoffice
   class WeathersController < BackofficeController
+
     before_action :set_weather, only: %i[edit update]
 
     def index
@@ -33,7 +34,6 @@ module Backoffice
     end
 
     private
-
     def set_weather
       @weather = Weather.find(params[:id])
     end
@@ -41,5 +41,6 @@ module Backoffice
     def params_weather
       params.require(:weather).permit(:description, :min_temp, :max_temp)
     end
+
   end
 end

@@ -3,6 +3,7 @@
 module Backoffice
   module AdvertisingsController
     class AdvertisingService
+
       attr_accessor :advertising
 
       def self.create(params_advertising)
@@ -12,6 +13,7 @@ module Backoffice
 
         @advertising
       end
+
     end
   end
 end

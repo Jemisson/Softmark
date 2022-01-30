@@ -2,6 +2,7 @@
 
 module Backoffice
   class MembersController < BackofficeController
+
     before_action :set_member, only: %i[edit update destroy]
 
     def index
@@ -51,7 +52,6 @@ module Backoffice
     end
 
     private
-
     def set_member
       @member = Member.find(params[:id])
     end
@@ -59,5 +59,6 @@ module Backoffice
     def params_member
       params.require(:member).permit(:name, :email, :password, :password_confirmation)
     end
+
   end
 end

@@ -59,13 +59,13 @@ namespace :dev do
   task generate_clients: :environment do
     puts 'Cadastrando CLIENTES'
     clients = %w[Padaria
-                 Supermercado
-                 Famácia
-                 Sorveteria
-                 Cafeteria
-                 Academia
-                 Conveniência
-                 Açougue]
+      Supermercado
+      Famácia
+      Sorveteria
+      Cafeteria
+      Academia
+      Conveniência
+      Açougue]
 
     clients.each do |client|
       Client.find_or_create_by(

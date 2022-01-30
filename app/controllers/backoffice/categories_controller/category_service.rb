@@ -3,6 +3,7 @@
 module Backoffice
   module CategoriesController
     class CategoryService
+
       attr_accessor :category
 
       def self.create(params_category)
@@ -12,6 +13,7 @@ module Backoffice
 
         @category
       end
+
     end
   end
 end

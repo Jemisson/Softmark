@@ -3,6 +3,7 @@
 module Backoffice
   module WeathersController
     class WeatherService
+
       attr_accessor :weather
 
       def self.create(params_weather)
@@ -12,6 +13,7 @@ module Backoffice
 
         @weather
       end
+
     end
   end
 end

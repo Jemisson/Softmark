@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class CreateWeathers < ActiveRecord::Migration[4.2]
+
   def change
     create_table :weathers do |t|
       t.string :description
@@ -10,4 +11,5 @@ class CreateWeathers < ActiveRecord::Migration[4.2]
       t.timestamps null: false
     end
   end
+
 end

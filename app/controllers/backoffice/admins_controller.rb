@@ -2,6 +2,7 @@
 
 module Backoffice
   class AdminsController < BackofficeController
+
     before_action :set_admin, only: %i[edit update destroy]
     after_action :verify_authorized, only: :new
     after_action :verify_policy_scoped, only: :index
@@ -54,7 +55,6 @@ module Backoffice
     end
 
     private
-
     def set_admin
       @admin = Admin.find(params[:id])
     end
@@ -66,5 +66,6 @@ module Backoffice
         params.require(:admin).permit(policy(@admin).permitted_attributes)
       end
     end
+
   end
 end

@@ -1,12 +1,13 @@
 # frozen_string_literal: true
 
-class Advertising < ActiveRecord::Base
+class Advertising < ApplicationRecord
+
   belongs_to :category
   belongs_to :weather
   belongs_to :qrcode
   belongs_to :client, counter_cache: true
 
-  validates_presence_of :picture
+  validates :picture, presence: true
 
   has_attached_file :picture,
                     url: '/system/:attachment/:id/:style/:filename',
@@ -16,4 +17,5 @@ class Advertising < ActiveRecord::Base
                     default_url: '/images/:style/missing.png'
 
   validates_attachment_content_type :picture, content_type: %r{\Aimage/.*\z}
+
 end

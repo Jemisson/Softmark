@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class CreateAdvertisings < ActiveRecord::Migration[4.2]
+
   def change
     create_table :advertisings do |t|
       t.date :start_date
@@ -13,4 +14,5 @@ class CreateAdvertisings < ActiveRecord::Migration[4.2]
       t.timestamps null: false
     end
   end
+
 end

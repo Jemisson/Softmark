@@ -3,6 +3,7 @@
 require 'test_helper'
 
 class AdminPolicyTest < ActiveSupport::TestCase
+
   def test_scope; end
 
   def test_show; end
@@ -12,4 +13,5 @@ class AdminPolicyTest < ActiveSupport::TestCase
   def test_update; end
 
   def test_destroy; end
+
 end

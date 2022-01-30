@@ -2,6 +2,7 @@
 
 module Backoffice
   class AdvertisingsController < BackofficeController
+
     before_action :set_advertising, only: %i[edit update destroy]
     before_action :set_category, only: %i[new edit]
     before_action :set_weather, only: %i[new edit]
@@ -47,7 +48,6 @@ module Backoffice
     end
 
     private
-
     def set_advertising
       @advertising = Advertising.find(params[:id])
     end
@@ -73,5 +73,6 @@ module Backoffice
                                           :category_id, :weather_id, :qrcode_id,
                                           :client_id)
     end
+
   end
 end

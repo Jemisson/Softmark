@@ -1,9 +1,11 @@
 # frozen_string_literal: true
 
-class Category < ActiveRecord::Base
+class Category < ApplicationRecord
+
   # Associations
   has_many :advertisings
 
   # validations
-  validates_presence_of :description
+  validates :description, presence: true
+
 end

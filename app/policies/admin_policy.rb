@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class AdminPolicy < ApplicationPolicy
+
   def new?
     user.full_access?
   end
@@ -18,6 +19,7 @@ class AdminPolicy < ApplicationPolicy
   end
 
   class Scope < Scope
+
     def resolve
       if user.full_access?
         scope.all
@@ -25,5 +27,7 @@ class AdminPolicy < ApplicationPolicy
         scope.where(id: user.id)
       end
     end
+
   end
+
 end

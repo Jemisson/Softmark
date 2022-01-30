@@ -3,6 +3,7 @@
 module Backoffice
   module ClientsController
     class ClientService
+
       attr_accessor :client
 
       def self.create(params_client)
@@ -12,6 +13,7 @@ module Backoffice
 
         @client
       end
+
     end
   end
 end
