@@ -44,7 +44,7 @@ gem 'bootstrap-filestyle-rails'
 # Communication with Clima Tempo accessing information about the weather of Brazil.
 gem 'hg-weather'
 
-gem 'rubocop', require: false
+gem 'rubocop', '1.11.0', require: false
 gem 'rubocop-performance', '1.10.1', require: false
 gem 'rubocop-rails', '2.9.1', require: false
 
