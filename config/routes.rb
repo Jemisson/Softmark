@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   root 'user/members#index'
 
@@ -9,21 +11,21 @@ Rails.application.routes.draw do
   end
 
   namespace :backoffice do
-    resources :categories, except: [:show, :destroy]
+    resources :categories, except: %i[show destroy]
     resources :admins, except: [:show]
     resources :members, except: [:show]
-    resources :clients, except: [:show, :destroy]
-    resources :weathers, except: [:show, :destroy]
+    resources :clients, except: %i[show destroy]
+    resources :weathers, except: %i[show destroy]
     resources :advertisings, except: [:show]
-    resources :qrcodes , except: [:show]
-    resources :coupons, except: [:show, :destroy]
+    resources :qrcodes, except: [:show]
+    resources :coupons, except: %i[show destroy]
     get 'generate_qr/:id', to: 'qrcodes#generate', as: 'generate'
-    get 'download/:id', to:'qrcodes#download', as:'qr_code'
+    get 'download/:id', to: 'qrcodes#download', as: 'qr_code'
     get 'dashboard', to: 'dashboard#index'
   end
 
-  devise_for :admins, :skip => [:registration]
-  devise_for :members, :skip => [:registration]
+  devise_for :admins, skip: [:registration]
+  devise_for :members, skip: [:registration]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

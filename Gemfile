@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
-ruby "2.4.0"
+ruby '2.4.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.4', '>= 5.2.4.2'
@@ -18,9 +20,9 @@ gem 'coffee-rails', '~> 4.2'
 
 # Rails gem of the Bootstrap based admin theme SB Admin 2.
 gem 'bootstrap_sb_admin_base_v2'
-#Better error page for Rack apps
-gem "better_errors"
-#Flexible authentication solution for Rails with Warden.
+# Better error page for Rack apps
+gem 'better_errors'
+# Flexible authentication solution for Rails with Warden.
 gem 'devise'
 # Translations for devise
 gem 'devise-i18n'
@@ -41,7 +43,10 @@ gem 'paperclip', '~> 5.0.0'
 gem 'bootstrap-filestyle-rails'
 # Communication with Clima Tempo accessing information about the weather of Brazil.
 gem 'hg-weather'
+
 gem 'rubocop', require: false
+gem 'rubocop-performance', '1.10.1', require: false
+gem 'rubocop-rails', '2.9.1', require: false
 
 source 'https://rails-assets.org' do
   # alert messages
@@ -49,7 +54,6 @@ source 'https://rails-assets.org' do
   # BootboxJS
   gem 'rails-assets-bootbox'
 end
-
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -79,11 +83,11 @@ group :development do
   gem 'web-console', '~> 2.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
-  #Remote multi-server automation tool
+  # Remote multi-server automation tool
   gem 'capistrano', '~> 3.7'
   # official Ruby os rails specific taks for Capistrano.
   gem 'capistrano-bundler', '~> 1.2'
-  #Bundler support for capistrano 3.x
+  # Bundler support for capistrano 3.x
   gem 'capistrano-rails', '~> 1.2'
   gem 'capistrano-rvm'
 end

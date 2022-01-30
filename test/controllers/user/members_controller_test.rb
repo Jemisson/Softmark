@@ -1,9 +1,12 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
-class User::MembersControllerTest < ActionController::TestCase
-  test "should get index" do
-    get :index
-    assert_response :success
+module User
+  class MembersControllerTest < ActionController::TestCase
+    test 'should get index' do
+      get :index
+      assert_response :success
+    end
   end
-
 end

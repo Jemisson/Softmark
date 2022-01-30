@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 module Backoffice
-  # Advertisings Controller
   class AdvertisingsController < BackofficeController
     before_action :set_advertising, only: %i[edit update destroy]
     before_action :set_category, only: %i[new edit]

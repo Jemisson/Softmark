@@ -1,4 +1,6 @@
-root = "/var/www/softmark/current"
+# frozen_string_literal: true
+
+root = '/var/www/softmark/current'
 working_directory root
 
 pid "#{root}/tmp/pids/unicorn.pid"

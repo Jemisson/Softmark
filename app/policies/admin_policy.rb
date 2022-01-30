@@ -1,5 +1,6 @@
-class AdminPolicy < ApplicationPolicy
+# frozen_string_literal: true
 
+class AdminPolicy < ApplicationPolicy
   def new?
     user.full_access?
   end
@@ -10,9 +11,9 @@ class AdminPolicy < ApplicationPolicy
 
   def permitted_attributes
     if user.full_access?
-      [:name, :email, :password, :password_confirmation, :role]
+      %i[name email password password_confirmation role]
     else
-      [:name, :email, :password, :password_confirmation]
+      %i[name email password password_confirmation]
     end
   end
 
@@ -25,5 +26,4 @@ class AdminPolicy < ApplicationPolicy
       end
     end
   end
-
 end

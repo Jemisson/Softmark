@@ -1,13 +1,17 @@
-class Backoffice::MembersController::MemberService
-  attr_accessor :member
+# frozen_string_literal: true
 
-  def self.create(params_member)
-    @member = Member.new(params_member)
+module Backoffice
+  module MembersController
+    class MemberService
+      attr_accessor :member
 
-    if @member.valid?
-      @member.save!
+      def self.create(params_member)
+        @member = Member.new(params_member)
+
+        @member.save! if @member.valid?
+
+        @member
+      end
     end
-
-    @member
   end
 end

@@ -1,9 +1,12 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
-class Backoffice::AdminsControllerTest < ActionController::TestCase
-  test "should get index" do
-    get :index
-    assert_response :success
+module Backoffice
+  class AdminsControllerTest < ActionController::TestCase
+    test 'should get index' do
+      get :index
+      assert_response :success
+    end
   end
-
 end

@@ -1,13 +1,17 @@
-class Backoffice::WeathersController::WeatherService
-  attr_accessor :weather
+# frozen_string_literal: true
 
-  def self.create(params_weather)
-    @weather = Weather.new(params_weather)
+module Backoffice
+  module WeathersController
+    class WeatherService
+      attr_accessor :weather
 
-    if @weather.valid?
-      @weather.save!
+      def self.create(params_weather)
+        @weather = Weather.new(params_weather)
+
+        @weather.save! if @weather.valid?
+
+        @weather
+      end
     end
-
-    @weather
   end
 end

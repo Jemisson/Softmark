@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 class Admin < ActiveRecord::Base
   # Constants
-  ROLES = {:full_access => 0, :restricted_access => 1}
-  #Enums
+  ROLES = { full_access: 0, restricted_access: 1 }.freeze
+  # Enums
   enum role: ROLES
 
   # Include default devise modules. Others available are:

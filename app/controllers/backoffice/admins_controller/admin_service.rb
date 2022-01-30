@@ -1,13 +1,17 @@
-class Backoffice::AdminsController::AdminService
-  attr_accessor :admin
+# frozen_string_literal: true
 
-  def self.create(params_admin)
-    @admin = Admin.new(params_admin)
+module Backoffice
+  module AdminsController
+    class AdminService
+      attr_accessor :admin
 
-    if @admin.valid?
-      @admin.save!
+      def self.create(params_admin)
+        @admin = Admin.new(params_admin)
+
+        @admin.save! if @admin.valid?
+
+        @admin
+      end
     end
-
-    @admin
   end
 end

@@ -1,15 +1,27 @@
 default: &default
-  adapter: mysql2
-  encoding: utf8
-  pool: 5
-  username: root
-  password: root
-  socket: /var/run/mysqld/mysqld.sock
+  adapter: postgresql
+  encoding: unicode
+
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
   <<: *default
-  database: softmark
+  database: softmark_development
+  username: rails_dev
+  password: postgres
+  host: localhost
+  port: 5432
 
 test:
   <<: *default
   database: softmark_test
+  host: localhost
+  port: 5432
+  username: rails_dev
+  password: postgres
+
+production:
+  <<: *default
+  database: softmark_production
+  username: myapp
+  password: <%= ENV['MYAPP_DATABASE_PASSWORD'] %>

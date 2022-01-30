@@ -1,23 +1,24 @@
-class Backoffice::CouponsController < BackofficeController
-  before_action :set_coupon, only: [:edit, :update]
+# frozen_string_literal: true
 
-  def index
-    @coupons = Coupon.all
-  end
+module Backoffice
+  class CouponsController < BackofficeController
+    before_action :set_coupon, only: %i[edit update]
 
-  def edit
-  end
-
-  def update
-    if @coupon.update(params_coupon)
-      redirect_to backoffice_coupons_path, notice: "O Cupom de (#{@coupon.name}) foi baixado com sucesso"
-    else
-      render :new
+    def index
+      @coupons = Coupon.all
     end
-  end
 
+    def edit; end
 
-  private
+    def update
+      if @coupon.update(params_coupon)
+        redirect_to backoffice_coupons_path, notice: "O Cupom de (#{@coupon.name}) foi baixado com sucesso"
+      else
+        render :new
+      end
+    end
+
+    private
 
     def set_coupon
       @coupon = Coupon.find(params[:id])
@@ -26,6 +27,5 @@ class Backoffice::CouponsController < BackofficeController
     def params_coupon
       params.require(:coupon).permit(:status)
     end
-
-
+  end
 end

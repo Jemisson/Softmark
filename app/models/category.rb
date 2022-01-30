@@ -1,8 +1,9 @@
-class Category < ActiveRecord::Base
+# frozen_string_literal: true
 
+class Category < ActiveRecord::Base
   # Associations
   has_many :advertisings
 
-  #validations
+  # validations
   validates_presence_of :description
 end

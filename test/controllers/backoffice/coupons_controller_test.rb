@@ -1,9 +1,12 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
-class Backoffice::CouponsControllerTest < ActionDispatch::IntegrationTest
-  test "should get index" do
-    get backoffice_coupons_index_url
-    assert_response :success
+module Backoffice
+  class CouponsControllerTest < ActionDispatch::IntegrationTest
+    test 'should get index' do
+      get backoffice_coupons_index_url
+      assert_response :success
+    end
   end
-
 end

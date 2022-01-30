@@ -1,13 +1,17 @@
-class Backoffice::ClientsController::ClientService
-  attr_accessor :client
+# frozen_string_literal: true
 
-  def self.create(params_client)
-    @client = Client.new(params_client)
+module Backoffice
+  module ClientsController
+    class ClientService
+      attr_accessor :client
 
-    if @client.valid?
-      @client.save!
+      def self.create(params_client)
+        @client = Client.new(params_client)
+
+        @client.save! if @client.valid?
+
+        @client
+      end
     end
-
-    @client
   end
 end
