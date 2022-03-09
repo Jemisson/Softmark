@@ -1,19 +1,17 @@
 # frozen_string_literal: true
 
 module Backoffice
-  module QrcodesController
-    class QrcodeService
+  class QrcodesController::QrcodeService
 
-      attr_accessor :qrcode
+    attr_accessor :qrcode
 
-      def self.create(params_qrcode)
-        @qrcode = Qrcode.new(params_qrcode)
+    def self.create(params_qrcode)
+      @qrcode = Qrcode.new(params_qrcode)
 
-        @qrcode.save! if @qrcode.valid?
+      @qrcode.save! if @qrcode.valid?
 
-        @qrcode
-      end
-
+      @qrcode
     end
+
   end
 end

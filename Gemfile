@@ -19,8 +19,8 @@ gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 4.3'
 gem 'pundit'
 gem 'rails', '~> 5.2.4', '>= 5.2.4.2'
-gem 'rqrcode'
-gem 'rqrcode_png'
+gem 'rqrcode', '< 1.0.0'
+gem 'rqrcode_png', '~> 0.1.5'
 gem 'rubocop', '1.11.0', require: false
 gem 'rubocop-performance', '1.10.1', require: false
 gem 'rubocop-rails', '2.9.1', require: false

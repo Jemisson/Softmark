@@ -3,7 +3,7 @@
 module Backoffice
   class QrcodesController < BackofficeController
 
-    require 'rqrcode'
+    require 'rqrcode_png'
     before_action :set_qrcode, only: %i[edit update destroy generate download]
 
     def index
@@ -66,7 +66,7 @@ module Backoffice
 
     def generate_qrcode
       img_show = "/qrcodes/#{DateTime.now}.png"
-      img_path = "/var/www/softmark/current/public#{img_show}"
+      img_path = "public#{img_show}"
       @qr = RQRCode::QRCode.new(@qrcode.token, size: 10)
       png = @qr.to_img
       png.resize(300, 300).save(img_path)

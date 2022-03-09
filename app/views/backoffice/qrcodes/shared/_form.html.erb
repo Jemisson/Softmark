@@ -79,7 +79,7 @@
           <div class="col-lg-6">
             <div class="well qrcode-panel">
               <% if @qrcode.id != nil && @qrcode.img_path != ""%>
-                <%= image_tag @qrcode.img_path, class: "img_qrcode" %>
+                <%= image_tag @qrcode.img_path, class: "img_qrcode", alt:"#{@qrcode.img_path}" %>
                 <div class="row center">
                   <%= link_to "download", backoffice_qr_code_path(@qrcode.id),
                                                   class: "btn btn-primary btn-space" %>
@@ -90,9 +90,6 @@
         </div>
       </div>
 
-      <!-- /.panel-body -->
     </div>
-    <!-- /.panel -->
   </div>
-  <!-- /.col-lg-12 -->
 </div>
