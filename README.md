@@ -1,6 +1,5 @@
+[![Brakeman Scan](https://github.com/Jemisson/Softmark/actions/workflows/brakeman-analysis.yml/badge.svg?branch=master)](https://github.com/Jemisson/Softmark/actions/workflows/brakeman-analysis.yml)
 [![Rubocop](https://github.com/Jemisson/Softmark/actions/workflows/rubocop-analysis.yml/badge.svg?branch=master)](https://github.com/Jemisson/Softmark/actions/workflows/rubocop-analysis.yml)
-
-[![Brakeman Scan](https://github.com/Jemisson/Softmark/actions/workflows/brakeman-analysis.yml/badge.svg?branch=master&event=push)](https://github.com/Jemisson/Softmark/actions/workflows/brakeman-analysis.yml)
 
 # SOFTMARK - DIGITAL MARKETING SOFTWARE USING ADVERTISING
 
@@ -11,8 +10,10 @@ Softmark is a software to play advertisements according to weather conditions an
 Subject: Software Engineering
 
 ## Prerequisites
-> Ruby 2.4.0
-> Rails 5.2
+
+ > Ruby 2.4.0
+ 
+ > Rails 5.2
 
 ## Instalation
 
@@ -21,6 +22,7 @@ Clone project:
 ``` git clone https://github.com/Jemisson/Softmark.git```
 
 Rewrite values on:
+
 ```config/database.yml```
 
 ## Basic configuration
@@ -29,8 +31,9 @@ Rewrite values on:
  2. rake dev:setup 
  3. rails s
 
-Then access on your browser: 
-```localhost:3000```
+Then access on your browser:
+
+ ```localhost:3000```
 
 
 ### UNIFESP - 2019
