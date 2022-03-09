@@ -1,4 +1,4 @@
-[![Rubocop](https://github.com/Jemisson/Softmark/actions/workflows/rubocop-analysis.yml/badge.svg?branch=master&event=push)](https://github.com/Jemisson/Softmark/actions/workflows/rubocop-analysis.yml)
+[![Rubocop](https://github.com/Jemisson/Softmark/actions/workflows/rubocop-analysis.yml/badge.svg?branch=master)](https://github.com/Jemisson/Softmark/actions/workflows/rubocop-analysis.yml)
 
 [![Brakeman Scan](https://github.com/Jemisson/Softmark/actions/workflows/brakeman-analysis.yml/badge.svg?branch=master&event=push)](https://github.com/Jemisson/Softmark/actions/workflows/brakeman-analysis.yml)
 
