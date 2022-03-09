@@ -2,37 +2,37 @@
 
 [![Brakeman Scan](https://github.com/Jemisson/Softmark/actions/workflows/brakeman-analysis.yml/badge.svg?branch=master&event=push)](https://github.com/Jemisson/Softmark/actions/workflows/brakeman-analysis.yml)
 
-#SOFTMARK - DIGITAL MARKETING SOFTWARE USING ADVERTISING
+# SOFTMARK - DIGITAL MARKETING SOFTWARE USING ADVERTISING
 
 **UNIFESP - Federal University of São José dos Campos**
 
-Subject: Software Engineering
-
 Softmark is a software to play advertisements according to weather conditions and days of the week.
 
-Prerequisites
-===
-  > Ruby 2.4.0
-  > Rails 5.2
+Subject: Software Engineering
 
-Instalation
-===
-  Clone project:
+## Prerequisites
+> Ruby 2.4.0
+> Rails 5.2
 
-  ``` git clone https://github.com/Jemisson/Softmark.git```
+## Instalation
 
-Basic configuration
-===
-  Create config/database.yml
+Clone project:
+
+``` git clone https://github.com/Jemisson/Softmark.git```
+
+Rewrite values on:
+```config/database.yml```
+
+## Basic configuration
+
+ 1. bundle 
+ 2. rake dev:setup 
+ 3. rails s
+
+Then access on your browser: 
+```localhost:3000```
 
 
-1º bundle
-
-2º rake dev:setup
-
-3º rails s
-
-
-O programa será executado em localhost:3000
-
-Jemison Santos - Thais Camargo
+### UNIFESP - 2019
+Coded by: Jemison Santos
+Tested by: Thais Camargo
