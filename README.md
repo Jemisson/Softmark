@@ -1,7 +1,7 @@
 [![Brakeman Scan](https://github.com/Jemisson/Softmark/actions/workflows/brakeman-analysis.yml/badge.svg?branch=master)](https://github.com/Jemisson/Softmark/actions/workflows/brakeman-analysis.yml)
 [![Rubocop](https://github.com/Jemisson/Softmark/actions/workflows/rubocop-analysis.yml/badge.svg?branch=master)](https://github.com/Jemisson/Softmark/actions/workflows/rubocop-analysis.yml)
 
-# SOFTMARK - DIGITAL MARKETING SOFTWARE USING ADVERTISING
+# SOFTMARK - DIGITAL MARKETING SOFTWARE USING ADS
 
 Softmark is a software for carrying out digital marketing on fixed screens in public or private places. Based on the days of the week and weather data, it is possible to configure which type of advertisement should be displayed, e.g. On a sunny day the system show advertisements for cold water and/or soft drinks, if the weather cools the advertisements can automatically switch to hot soups and broths.
 
