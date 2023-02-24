@@ -27,9 +27,9 @@ Rewrite values on:
 
 ## Basic configuration
 
- 1. bundle 
- 2. rake dev:setup 
- 3. rails s
+ 1. ```bundle ```
+ 2. ```rake dev:setup ```
+ 3. ```rails s```
 
 Then access on your browser:
 
